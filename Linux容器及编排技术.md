@@ -1,7 +1,21 @@
 # Linux容器技术 #
 Docker是虚拟化的一种轻量级替代技术。Docker的容器技术不依赖任何语言、框架或系统，可以将App变成一种标准化的、可移植的、自管理的组件，并脱离服务器硬件在任何主流系统中开发、调试和运行。
 
-![](doc/docker.png)
+
+
+1. What is a Container? 
+
+	A standardized unit of software. Package Software into Standardized Units for Development, Shipment and Deployment
+	
+	![](doc/docker.png)
+
+1. Docker Containers Are Everywhere: Linux, Windows, Data center, Cloud, Serverless, etc.
+
+	![](doc/docker_today.png)
+
+1. Comparing Containers and Virtual Machines
+
+	![](doc/container_vm.png)
 
 ## 图解Docker
 
@@ -77,7 +91,7 @@ docker run创建Docker容器时，--net选项指定容器网络模式，Docker�
 
 ## Docker源码分析 ##
 
-### 一个用shell脚本实现的简化版Docker - Bocker（预热） ###
+### 一个用shell脚本实现的简化版Docker - Bocker ###
 	
 *100行左右实现docker基本功能，通过分析Bocker，我想说明容器是多种新老技术的综合运用*
 
@@ -380,6 +394,8 @@ IPC相关知识，请参考[Linux进程间通信](./Linux进程间通信.md)，*
 
 #### docker compose - [Doc](https://docs.docker.com/compose/overview/)、 [Github](https://github.com/docker/compose) ####
 
+### Kubenets生态 ###
+
 ## lxc原生容器 ##
 
 <details><summary>虚拟化技术对比</summary>
@@ -412,3 +428,6 @@ IPC相关知识，请参考[Linux进程间通信](./Linux进程间通信.md)，*
 2. [Docker from 百度百科](https://baike.baidu.com/item/Docker/13344470?fr=aladdin)
 3. [简述KVM架构和Xen架构](https://www.cnblogs.com/Timesi/p/9565456.html)
 4. [学习 KVM 的系列文章](http://www.cnblogs.com/sammyliu/p/4543110.html)
+5. [kuberbets中文文档](http://docs.kubernetes.org.cn/)
+6. [Install Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
+6. [Install and Set Up kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
