@@ -72,7 +72,7 @@
 5. [Linux网络管理](./Linux网络管理.md)
 6. [Linux设备管理](./Linux设备管理.md)
 7. [Linux虚拟化技术](./Linux虚拟化技术.md)
-8. [Linux容器及编排技术](./Linux容器及编技术.md)
+8. [Linux容器及编排技术](./Linux容器及编排技术.md)
 9. [Linux调试及跟踪](./Linux工具集.md)
 10. [有关Qemu](./有关Qemu.md)
 11. [Linux软件包管理](./Linux软件包管理.md)
