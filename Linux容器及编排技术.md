@@ -1,7 +1,5 @@
 # Linux容器技术 #
-Docker是虚拟化的一种轻量级替代技术。Docker的容器技术不依赖任何语言、框架或系统，可以将App变成一种标准化的、可移植的、自管理的组件，并脱离服务器硬件在任何主流系统中开发、调试和运行。
-
-
+Docker是虚拟化的一种轻量级替代技术。Docker的容器技术不依赖任何语言、框架或系统，可以将App变成一种标准化的、可移植的、自管理的组件，并脱离服务器硬件在任何主流系统中开发、调试和运行。 摘自Docker官网的一句话，**Securely build, share and run any application, anywhere！**
 
 1. What is a Container? 
 

@@ -7,31 +7,35 @@ cat /etc/debian_version
 uname -r
 
 ## 安装xfce4
+
 	apt-get install xfce4 xfce4-goodies #xfce4-goodies包含了很多xfce4-*的包
 	update-alternatives --config x-session-manager #切换界面
 
 ## 设置apt源
 - debian(stretch)
-	修改/etc/apt/sources.list
-	deb http://mirrors.163.com/debian/ stretch main non-free contrib
-	deb http://mirrors.163.com/debian/ stretch-updates main non-free contrib
-	deb http://mirrors.163.com/debian/ stretch-backports main non-free contrib
-	deb-src http://mirrors.163.com/debian/ stretch main non-free contrib
-	deb-src http://mirrors.163.com/debian/ stretch-updates main non-free contrib
-	deb-src http://mirrors.163.com/debian/ stretch-backports main non-free contrib
-	deb http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib
-	deb-src http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib
+
+		修改/etc/apt/sources.list
+		deb http://mirrors.163.com/debian/ stretch main non-free contrib
+		deb http://mirrors.163.com/debian/ stretch-updates main non-free contrib
+		deb http://mirrors.163.com/debian/ stretch-backports main non-free contrib
+		deb-src http://mirrors.163.com/debian/ stretch main non-free contrib
+		deb-src http://mirrors.163.com/debian/ stretch-updates main non-free contrib
+		deb-src http://mirrors.163.com/debian/ stretch-backports main non-free contrib
+		deb http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib
+		deb-src http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib
+
 - ubuntu(bionic)
-	deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
-	deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
-	deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
-	deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
-	deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
-	deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
-	deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
-	deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
-	deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
-	deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+
+		deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+		deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+		deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+		deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+		deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+		deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+		deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+		deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+		deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+		deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
 
 ## 设置系统语言及字体
 	aptitude install locales
@@ -61,6 +65,7 @@ uname -r
 
 
 ## 安装vscode
+
  	add-apt-repository ppa:ubuntu-desktop/ubuntu-make
     apt-get update
     apt-get install ubuntu-make
@@ -71,10 +76,12 @@ uname -r
 
 ## 安装docker及工具
 - debian(stretch)
-	1. wget -qO- https://get.docker.com | sh #curl -fsSL https://get.docker.com/ | sh 或 curl -sSL https://get.daocloud.io/docker | sh
-	2. apt-get install docker-compose
+	
+		1. wget -qO- https://get.docker.com | sh #curl -fsSL https://get.docker.com/ | sh 或 curl -sSL https://get.daocloud.io/docker | sh
+		2. apt-get install docker-compose
 
 - ubuntu(bionic)
-	1. echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" > /etc/apt/source.list.d/docker.list
-	2. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-	3. sudo apt-get install docker-ce
+	
+		1. echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" > /etc/apt/source.list.d/docker.list
+		2. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+		3. sudo apt-get install docker-ce

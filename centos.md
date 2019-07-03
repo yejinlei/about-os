@@ -64,6 +64,9 @@
 		mv Centos-7.repo CentOS-Base.repo
 		yum update -y
 
+## 安装X Windows System 
+	yum groupinstall "X Window system"
+
 ## 安装Gnome
 	yum -y groupsinstall "GNOME Desktop"  #or
 	yum -y groupinstall "Server with GUI"
@@ -72,12 +75,13 @@
 	yum -y groupsinstall "KDE Plasma Workspaces"
 
 ## 安装xfce4
+	yum install epel-release
 	yum -y groupinstall Xfce
 
 ## xrdp协议远程登陆
 	yum install epel* -y
 	yum --enablerepo=epel -y install xrdp
-	yum install vnc4server tightvncserver
+	yum install vnc4server tightvnc-server
 	systemctl start xrdp
 	systemctl enable xrdp
 	netstat -tnlp | grep xrdp	#检查xrdp是否开启
@@ -143,20 +147,31 @@
 	wget https://bootstrap.pypa.io/get-pip.py
 	python34 get-pip.py #安装对应版本pip
 
-## 升级docker最新版
-	1. yum install docker-io #epel库，最新版本docker-1.7
-	1. curl -sSL -O https://get.docker.com/builds/Linux/x86_64/docker-1.9.1 #继续升级到docker-1.9
-	1. chmod +x docker-1.9.1 
-	1. mv /usr/bin/docker /usr/bin/docker-1.7
-	1. cp ./docker-1.9.1 /usr/bin/docker
-	1. /etc/init.d/docker restart
-	1. pip install docker-compose #安装docker-compose编码工具
+## docker容器相关
+	#安装docker-ce
+	sudo yum update
+	sudo yum remove docker  docker-common docker-selinux docker-engine
+	sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+	sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo or sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+	yum list docker-ce --showduplicates | sort -r
+	sudo yum install docker-ce
+	sudo systemctl start docker
+	sudo systemctl enable docker
+	sudo docker version
+
+    #安装docker-compse，用于编排
+	pip install docker-compose #安装docker-compose编码工具
+
+	#安装dfimage，用于Image to Dockefile	
+	alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm chenzj/dfimage"
+	dfimage image_id
+
 
 ## rpm安装ffmpeg
 	1. yum localinstall --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-6.noarch.rpm
 	1. yum -y install ffmpeg ffmpeg-devel
 
-## 安装lvc
+## 安装vlc
 	http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
 	yum install vlc
 
