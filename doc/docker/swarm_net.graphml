@@ -284,6 +284,20 @@ udp:39763<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:
             </node>
             <node id="n0::n5::n2">
               <data key="d6">
+                <y:GenericNode configuration="com.yworks.flowchart.process">
+                  <y:Geometry height="72.63519503546098" width="198.7921099290781" x="307.3222672012151" y="222.6191820472577"/>
+                  <y:Fill color="#E8EEF7" color2="#CC99FF" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="62.8046875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="138.748046875" x="30.02203152703902" xml:space="preserve" y="4.915253767730519">eth0 10.255.0.2及多个vip
+lvs：
+1个service：1个vip
+1个vip：多个rip（容器）
+<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+                </y:GenericNode>
+              </data>
+            </node>
+            <node id="n0::n5::n3">
+              <data key="d6">
                 <y:GenericNode configuration="com.yworks.flowchart.internalStorage">
                   <y:Geometry height="47.0" width="198.99999999999997" x="301.4827281941228" y="560.7007423309457"/>
                   <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
@@ -294,7 +308,7 @@ publish端口 设置 MARK set 0xf62<y:LabelModel><y:SmartNodeLabelModel distance
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n0::n5::n3">
+            <node id="n0::n5::n4">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.flowchart.internalStorage">
                   <y:Geometry height="47.0" width="198.99999999999997" x="301.1582601090165" y="483.49506857208064"/>
@@ -302,11 +316,11 @@ publish端口 设置 MARK set 0xf62<y:LabelModel><y:SmartNodeLabelModel distance
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="213.443359375" x="-7.2216796875" xml:space="preserve" y="-0.5517578125">iptables表 mangle
 INPUT链
-MARK set 0xf62  对应 vip 10.255.0.134<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+MARK set 0xf62  对应 vip 10.255.0.133<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n0::n5::n4">
+            <node id="n0::n5::n5">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.flowchart.internalStorage">
                   <y:Geometry height="40.0" width="199.0" x="304.09354379695975" y="409.2924976500947"/>
@@ -317,7 +331,7 @@ MARK set 0xf62  对应 vip 10.255.0.134<y:LabelModel><y:SmartNodeLabelModel dist
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n0::n5::n5">
+            <node id="n0::n5::n6">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.flowchart.internalStorage">
                   <y:Geometry height="47.0" width="198.99999999999997" x="305.6817530168179" y="327.1429831609545"/>
@@ -326,20 +340,6 @@ MARK set 0xf62  对应 vip 10.255.0.134<y:LabelModel><y:SmartNodeLabelModel dist
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="198.806640625" x="0.0966796875" xml:space="preserve" y="-0.5517578125">iptables表 nat
 POSTROUTING链
 10.255.0.0/16        ipvs to:10.255.0.2<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
-                </y:GenericNode>
-              </data>
-            </node>
-            <node id="n0::n5::n6">
-              <data key="d6">
-                <y:GenericNode configuration="com.yworks.flowchart.process">
-                  <y:Geometry height="72.63519503546098" width="198.7921099290781" x="307.3222672012151" y="222.6191820472577"/>
-                  <y:Fill color="#E8EEF7" color2="#CC99FF" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="62.8046875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="138.748046875" x="30.02203152703902" xml:space="preserve" y="4.915253767730519">eth0 10.255.0.2及多个vip
-一个服务：一个vip
-一个vip：一个mark
-一个mark：多个容器ip
-<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
                 </y:GenericNode>
               </data>
             </node>
@@ -601,8 +601,8 @@ FORWARD<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:Mo
           <y:Geometry height="30.0" width="114.0" x="3.4729609929077583" y="310.61835106382983"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="69.361328125" x="22.3193359375" xml:space="preserve" y="-1.701171875">ip addr
-ipvsadm -Ln<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="110.04296875" x="1.978515625" xml:space="preserve" y="-1.701171875">ip addr
+ipvsadm -Ln or -Lnc<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -754,7 +754,7 @@ ipvsadm -Ln<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::n5::e0" source="n0::n5::n0" target="n0::n5::n2">
+    <edge id="n0::n5::e0" source="n0::n5::n0" target="n0::n5::n3">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -764,7 +764,7 @@ ipvsadm -Ln<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::n5::e1" source="n0::n5::n3" target="n0::n5::n4">
+    <edge id="n0::n5::e1" source="n0::n5::n4" target="n0::n5::n5">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -774,7 +774,7 @@ ipvsadm -Ln<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::n5::e2" source="n0::n5::n4" target="n0::n5::n5">
+    <edge id="n0::n5::e2" source="n0::n5::n5" target="n0::n5::n6">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-0.28280141843964657" ty="5.8232733543882205"/>
@@ -804,17 +804,7 @@ ipvsadm -Ln<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::e7" source="n0::n5::n6" target="n0::n3::n0">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#FF99CC" type="line" width="1.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="n0::n5::e3" source="n0::n5::n2" target="n0::n5::n3">
+    <edge id="n0::e7" source="n0::n5::n2" target="n0::n3::n0">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -824,7 +814,17 @@ ipvsadm -Ln<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::n5::e4" source="n0::n5::n5" target="n0::n5::n6">
+    <edge id="n0::n5::e3" source="n0::n5::n3" target="n0::n5::n4">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#FF99CC" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="n0::n5::e4" source="n0::n5::n6" target="n0::n5::n2">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -854,7 +854,7 @@ ipvsadm -Ln<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e3" source="n4" target="n0::n5::n6">
+    <edge id="e3" source="n4" target="n0::n5::n2">
       <data key="d10">
         <y:GenericEdge configuration="com.yworks.edge.framed">
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1036,17 +1036,17 @@ ipvsadm -Ln<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::n5::e5" source="n0::n5::n0" target="n0::n5::n6">
+    <edge id="n0::n5::e5" source="n0::n5::n0" target="n0::n5::n3">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="34.42279115289233" sy="-19.959415095758004" tx="28.24304824509079" ty="36.35980951050419"/>
+          <y:Path sx="34.42279115289233" sy="-19.959415095758004" tx="33.97864221672211" ty="7.799257669054327"/>
           <y:LineStyle color="#FF9900" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="true"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::e20" source="n0::n5::n6" target="n0::n3::n0">
+    <edge id="n0::e20" source="n0::n5::n2" target="n0::n3::n0">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="35.76416540929421" sy="-7.194369498629726" tx="16.014727485621506" ty="20.027486695028728"/>
@@ -1060,6 +1060,50 @@ ipvsadm -Ln<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="22.415586830784434" sy="-4.898895003312759" tx="20.11017902936601" ty="2.569843158376841"/>
+          <y:LineStyle color="#FF9900" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="n0::n5::e6" source="n0::n5::n3" target="n0::n5::n4">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="32.017271805877215" sy="0.7992576690543274" tx="32.34173989098349" ty="23.48149392791936"/>
+          <y:LineStyle color="#FF9900" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="n0::n5::e7" source="n0::n5::n4" target="n0::n5::n5">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="32.34173989098349" sy="-4.9950685720806405" tx="29.40645620304025" ty="8.707502349905326"/>
+          <y:LineStyle color="#FF9900" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="n0::n5::e8" source="n0::n5::n5" target="n0::n5::n6">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="30.40645620304025" sy="0.7075023499053259" tx="28.81824698318212" ty="9.357016839045514"/>
+          <y:LineStyle color="#FF9900" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="n0::n5::e9" source="n0::n5::n6" target="n0::n5::n2">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="31.81824698318212" sy="2.3570168390455137" tx="30.281677834245897" ty="20.06322043501177"/>
           <y:LineStyle color="#FF9900" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
