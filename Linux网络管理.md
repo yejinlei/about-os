@@ -1,13 +1,62 @@
 # Linux网络管理 #
 
-## 网络协议 ##
+## 图解网络 ##
+
+<details><summary>网络协议</summary>
+
 ![](doc/protocols.png)
 
-## Linux网络实现及数据流 ##
+</details>
+
+<details><summary>Linux网络实现及数据流</summary>
+
 ![](doc/Network_data_flow_through_kernel.png)
 
-## Linux网络IO模型 ##
+</details>
+
+<details><summary>Linux网络IO模型</summary>
+
 ![](doc/io-model.png)
+
+</details>
+
+<details><summary>Linux网络协议栈</summary>
+
+![](doc/net.png)
+
+</details>
+
+## 网络编程 ##
+- blocking 同步阻塞式I/O
+	
+	默认情况下,所有套接口都是阻塞的
+		
+	![](doc/blocking.png)
+
+	单进程模型             |  多线程/进程模式 | 线程/进程池模式
+	:-------------------------:|:-------------------------:|:-------------------------:
+	![](doc/network-singleprocess.png)  |  ![](doc/network-multithread.png) |  ![](doc/network-threadpool.png)
+
+	1. 通过多线程/进程模式**解决了多连接阻塞问题**，连接用的accept函数在主进程中，把影响（指阻塞）accept的数据交互部分（recv和send）移到子线程/进程中，这样就不会阻塞连接也不会阻塞其他子线程/进程收发数据，是一种被动规避方案
+	2. 多线程/进程模式下，虽然一定程度上解决了连接问题，但大量连接情况下会导致大量的线程/进程开销
+	3. 线程/进程池模式，解决在一定程度上解决了连接问题和开销问题，但同样存在“池”大小选择问题，过大过小都不合适
+	4. 上面两种模式，线程/进程中没有使用非阻塞I/O，因为没有必要
+
+- nonblocking 同步非阻塞式I/O
+
+	![](doc/nonblocking.png)
+
+- multiplexing I/O多路复用(select/poll/epoll)
+
+	![](doc/multiplexing.png)
+
+- signal driven 信号驱动式I/O(SIGIO)
+
+	![](doc/signal-driven.png)
+
+- asynchronous 异步I/O(POSIX的aio_系列函数)
+
+	![](doc/asynchronous.png)
 
 ## 网络协议栈各部分初始化 ##
 - **core_initcall：sock\_init初始，网络协议运行环境初始化,即套接口层初始化**
@@ -52,34 +101,17 @@
 	- sock\_map_fd，把socket对象封装到file对象
 		- fd_install，file对象映射到fd，并返回fd
 
-## ICMPv4协议-因特网控制信息协议 ##
-	
-因特网主机间用于交换控制信息（主要是错误通知及信息请求）。ICMP协议本身相对比较简单，但对于确保系统正确的行为至关重要。ICMP消息类型比较多，使用场景比较复杂。
+## 传输层 ##
 
-- ICMP初始化
-	- sysctl\_ipv4\_init，初始化sysctl
+## 网络层 ##
 
----
+- 防火墙相关
+	![](doc/net/有关Linux防火墙.png)
 
-![](doc/net.png)
+## 链路层/物理层 ##
 
----
-## 网络虚拟化 ##
-### 网络命名空间，进程级资源隔离 ###
-> 一种轻量级进程虚拟化机制，而非像KVM、XEN一样的OS级别虚拟化解决方案
-	
-- net\_ns_init
-	- 系统默认init_net网络命名空间插入全局链表net_namespace_list尾部
-- copy\_net_ns
-	- net_alloc，创建新的网络命名空间net对象
-	- 插入全局链表net\_namespace_list尾部
-
-### cgroup，系统角度资源分配 ###
-- net_prio
-- cls_cgroup
-
-## 网络设备 ##
-### loopback回环设备 ###
+### 网络设备 ###
+#### loopback回环设备 ####
 - loopback_net_init，入参为网络命名空间（struct net *net），每个net中都有一个lo设备对象指针(struct *net_device )，该函数就是为lo设备对象分配内存，并让net和net_device建立双向联系，所谓双向联系就是net_device.loopback_dev -> lo对象，lo对象.nd_net.net -> 入参net
 	- alloc_netdev，为“lo”网络设备分配内存，并设置setup安装函数，此处为loopback_setup
 		- loopback_setup，lo设备的安装函数，用于设置net_device中的众多features、及ops等
@@ -92,18 +124,18 @@
 	- register_netdev，在net中注册设备对象
 		- dev->netdev_ops->ndo_init(dev)， 如果存在netdev_ops->ndo_init则调用；lo设备可以查看struct net_device_ops loopback_ops中的**loopback_dev_init**
 
-### e1000e网卡设备 ###
+#### e1000e网卡设备 ####
 - e1000_init_module
 	- pci_register_driver，注册pci驱动（pci_driver，e1000_driver)
 
-### 网桥bridge ###
+#### 网桥bridge ####
 
-### 虚拟以太网卡veth ###
+#### 虚拟以太网卡veth ####
 - veth_init
 	- 
-### TUN/TAP ###
+#### TUN/TAP ####
 
-### bonding ###
+#### bonding ####
 
   bonding的模式一共有7种，常用的为0、1两种：
 
@@ -115,7 +147,7 @@
 - mode-tlb  5 自适应模式
 - mode-alb  6 网卡虚拟化方式
 
-### openvswitch中的虚拟网络设备 ###
+#### openvswitch中的虚拟网络设备 ####
     #centos6.5
 	yum install wget openssl-devel
 	yum groupinstall "Development Tools"
@@ -131,38 +163,6 @@
 
 	yum localinstall /home/ovswitch/rpmbuild/RPMS/x86_64/kmod-openvswitch-1.9.3-1.el6.x86_64.rpm
 	yum localinstall /home/ovswitch/rpmbuild/RPMS/x86_64openvswitch-1.9.3-1.x86_64.rpm
-
-## 网络IO模型及编程 ##
-- blocking 同步阻塞式I/O
-	
-	默认情况下,所有套接口都是阻塞的
-		
-	![](doc/blocking.png)
-
-	单进程模型             |  多线程/进程模式 | 线程/进程池模式
-	:-------------------------:|:-------------------------:|:-------------------------:
-	![](doc/network-singleprocess.png)  |  ![](doc/network-multithread.png) |  ![](doc/network-threadpool.png)
-
-	1. 通过多线程/进程模式**解决了多连接阻塞问题**，连接用的accept函数在主进程中，把影响（指阻塞）accept的数据交互部分（recv和send）移到子线程/进程中，这样就不会阻塞连接也不会阻塞其他子线程/进程收发数据，是一种被动规避方案
-	2. 多线程/进程模式下，虽然一定程度上解决了连接问题，但大量连接情况下会导致大量的线程/进程开销
-	3. 线程/进程池模式，解决在一定程度上解决了连接问题和开销问题，但同样存在“池”大小选择问题，过大过小都不合适
-	4. 上面两种模式，线程/进程中没有使用非阻塞I/O，因为没有必要
-
-- nonblocking 同步非阻塞式I/O
-
-	![](doc/nonblocking.png)
-
-- multiplexing I/O多路复用(select/poll/epoll)
-
-	![](doc/multiplexing.png)
-
-- signal driven 信号驱动式I/O(SIGIO)
-
-	![](doc/signal-driven.png)
-
-- asynchronous 异步I/O(POSIX的aio_系列函数)
-
-	![](doc/asynchronous.png)
 
 ## 管理工具 ##
 - 监控总体带宽使用:nload、bmon、slurm、bwm-ng、cbm、speedometer和netload 
