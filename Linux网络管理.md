@@ -171,5 +171,16 @@
 ## 管理工具 ##
 - 监控总体带宽使用:nload、bmon、slurm、bwm-ng、cbm、speedometer和netload 
 - 监控总体带宽使用（批量式输出):vnstat、ifstat、dstat和collectl 
-- 每个套接字连接的带宽使用:iftop、iptraf、tcptrack、pktstat、netwatch和trafshow 
+- 每个套接字连接的带宽使用:iftop、iptraf-ng、tcptrack、pktstat、netwatch和trafshow 
 - 每个进程的带宽使用:nethogs
+
+## 资料 ##
+1. [Linux上虚拟网络与真实网络的映射](https://www.sdnlab.com/13539.html)
+2. [Linux下Tun/Tap设备通信原理](https://www.nndev.cn/archives/72)
+3. [虚拟网卡TUN/TAP 驱动程序设计原理](https://www.cnblogs.com/woshiweige/p/4534660.html)
+4. [Tun/Tap interface tutorial](https://backreference.org/2010/03/26/tuntap-interface-tutorial/)
+5. [OVS 源码分析整理](https://www.jianshu.com/p/bf112793d658)
+6. [neutron的基本原理](https://www.cnblogs.com/fish001/articles/5619132.html)
+7. [深入理解 Neutron -- OpenStack 网络实现](https://github.com/yeasy/openstack_understand_Neutron)
+8. [Ribose Yim's Tech Blog - SDN技术指南](https://riboseyim.github.io/2019/06/07/SDN-NFV/)
+9. [SDN网络指南](https://feisky.gitbooks.io/sdn/)
