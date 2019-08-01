@@ -169,13 +169,17 @@
 	yum localinstall /home/ovswitch/rpmbuild/RPMS/x86_64/kmod-openvswitch-1.9.3-1.el6.x86_64.rpm
 	yum localinstall /home/ovswitch/rpmbuild/RPMS/x86_64openvswitch-1.9.3-1.x86_64.rpm
 
-## 网络性能优化 ##
+## 网络性能优化及工具 ##
 
-## 管理工具 ##
-- 监控总体带宽使用:nload、bmon、slurm、bwm-ng、cbm、speedometer和netload 
-- 监控总体带宽使用（批量式输出):vnstat、ifstat、dstat和collectl 
-- 每个套接字连接的带宽使用:iftop、iptraf-ng、tcptrack、pktstat、netwatch和trafshow 
-- 每个进程的带宽使用:nethogs
+- 性能
+	
+	![Linux性能优化](doc/perf/有关Linux性能优化.png)
+
+- 工具
+  - 监控总体带宽使用:nload、bmon、slurm、bwm-ng、cbm、speedometer和netload 
+  - 监控总体带宽使用（批量式输出):vnstat、ifstat、dstat和collectl 
+  - 每个套接字连接的带宽使用:iftop、iptraf-ng、tcptrack、pktstat、netwatch和trafshow 
+  - 每个进程的带宽使用:nethogs
 
 ## 资料 ##
 1. [Linux上虚拟网络与真实网络的映射](https://www.sdnlab.com/13539.html)
