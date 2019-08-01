@@ -113,6 +113,13 @@
 ## 链路层/物理层 ##
 
 ### 网络设备 ###
+
+![](doc/net/网络设备模型.png)
+
+#### e1000e网卡设备 ####
+- e1000_init_module
+	- pci_register_driver，注册pci驱动（pci_driver，e1000_driver)
+	- 
 #### loopback回环设备 ####
 - loopback_net_init，入参为网络命名空间（struct net *net），每个net中都有一个lo设备对象指针(struct *net_device )，该函数就是为lo设备对象分配内存，并让net和net_device建立双向联系，所谓双向联系就是net_device.loopback_dev -> lo对象，lo对象.nd_net.net -> 入参net
 	- alloc_netdev，为“lo”网络设备分配内存，并设置setup安装函数，此处为loopback_setup
@@ -126,15 +133,11 @@
 	- register_netdev，在net中注册设备对象
 		- dev->netdev_ops->ndo_init(dev)， 如果存在netdev_ops->ndo_init则调用；lo设备可以查看struct net_device_ops loopback_ops中的**loopback_dev_init**
 
-#### e1000e网卡设备 ####
-- e1000_init_module
-	- pci_register_driver，注册pci驱动（pci_driver，e1000_driver)
-
-#### 网桥bridge ####
-
-#### 虚拟以太网卡veth ####
+#### 虚拟以太网卡veth-pair ####
 - veth_init
-	- 
+
+#### Linux bridge ####
+  
 #### TUN/TAP ####
 
 #### bonding ####
@@ -149,7 +152,7 @@
 - mode-tlb  5 自适应模式
 - mode-alb  6 网卡虚拟化方式
 
-#### openvswitch中的虚拟网络设备 ####
+#### OVS中的虚拟网络设备 ####
     #centos6.5
 	yum install wget openssl-devel
 	yum groupinstall "Development Tools"
@@ -176,11 +179,13 @@
 
 ## 资料 ##
 1. [Linux上虚拟网络与真实网络的映射](https://www.sdnlab.com/13539.html)
-2. [Linux下Tun/Tap设备通信原理](https://www.nndev.cn/archives/72)
-3. [虚拟网卡TUN/TAP 驱动程序设计原理](https://www.cnblogs.com/woshiweige/p/4534660.html)
-4. [Tun/Tap interface tutorial](https://backreference.org/2010/03/26/tuntap-interface-tutorial/)
-5. [OVS 源码分析整理](https://www.jianshu.com/p/bf112793d658)
-6. [neutron的基本原理](https://www.cnblogs.com/fish001/articles/5619132.html)
-7. [深入理解 Neutron -- OpenStack 网络实现](https://github.com/yeasy/openstack_understand_Neutron)
-8. [Ribose Yim's Tech Blog - SDN技术指南](https://riboseyim.github.io/2019/06/07/SDN-NFV/)
-9. [SDN网络指南](https://feisky.gitbooks.io/sdn/)
+2. [Linux 虚拟网络设备 veth-pair 详解，看这一篇就够了](https://www.cnblogs.com/bakari/p/10613710.html)
+3. [Linux下Tun/Tap设备通信原理](https://www.nndev.cn/archives/72)
+4. [虚拟网卡TUN/TAP 驱动程序设计原理](https://www.cnblogs.com/woshiweige/p/4534660.html)
+5. [Tun/Tap interface tutorial](https://backreference.org/2010/03/26/tuntap-interface-tutorial/)
+6. [OVS 源码分析整理](https://www.jianshu.com/p/bf112793d658)
+7. [neutron的基本原理](https://www.cnblogs.com/fish001/articles/5619132.html)
+8. [LVS中文文档](http://www.linuxvirtualserver.org/zh/index.html)
+9. [深入理解 Neutron -- OpenStack 网络实现](https://github.com/yeasy/openstack_understand_Neutron)
+10. [Ribose Yim's Tech Blog - SDN技术指南](https://riboseyim.github.io/2019/06/07/SDN-NFV/)
+11. [SDN网络指南](https://feisky.gitbooks.io/sdn/)
