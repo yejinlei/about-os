@@ -92,4 +92,5 @@
     stty
 
 ## 参考
-1、[X_Window_System's Wiki](https://en.wikipedia.org/wiki/X_Window_System)
+1. [X_Window_System's Wiki](https://en.wikipedia.org/wiki/X_Window_System)
+2. [VNC（虚拟网络计算）](https://wiki.centos.org/zh/HowTos/VNC-Server#head-ad2bf6dbb42089715ca5cac7d2129f7bf35747c3)

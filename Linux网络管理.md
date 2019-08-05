@@ -112,9 +112,12 @@
 
 ## 链路层/物理层 ##
 
-### 网络设备 ###
+### 虚拟网络及设备 ###
 
 ![](doc/net/网络设备模型.png)
+
+- 网络模块（modinfo tun）, /lib/modules/4.15.0-55-generic/kernel/drivers/net/
+
 
 #### e1000e网卡设备 ####
 - e1000_init_module
@@ -133,14 +136,14 @@
 	- register_netdev，在net中注册设备对象
 		- dev->netdev_ops->ndo_init(dev)， 如果存在netdev_ops->ndo_init则调用；lo设备可以查看struct net_device_ops loopback_ops中的**loopback_dev_init**
 
-#### 虚拟以太网卡veth-pair ####
+#### Veth Pair虚拟网卡对 ####
 - veth_init
 
-#### Linux bridge ####
+#### Linux bridge网桥 ####
   
-#### TUN/TAP ####
+#### TUN/TAP设备 ####
 
-#### bonding ####
+#### Bonding模块/技术 ####
 
   bonding的模式一共有7种，常用的为0、1两种：
 
@@ -151,6 +154,10 @@
 - ieee802.3ad  4 动态链路聚合模式，需要交换机支持
 - mode-tlb  5 自适应模式
 - mode-alb  6 网卡虚拟化方式
+  
+#### VPN技术 ####
+- 应用层VPN：SSL VPN（OpenVPN、Vtun）
+- 网络层VPN：IPIP协议、IPGRE协议、IPSec协议
 
 #### OVS中的虚拟网络设备 ####
     #centos6.5
@@ -193,3 +200,6 @@
 9. [深入理解 Neutron -- OpenStack 网络实现](https://github.com/yeasy/openstack_understand_Neutron)
 10. [Ribose Yim's Tech Blog - SDN技术指南](https://riboseyim.github.io/2019/06/07/SDN-NFV/)
 11. [SDN网络指南](https://feisky.gitbooks.io/sdn/)
+12. [Google's BBR拥塞控制算法模型解析](https://blog.csdn.net/dog250/article/details/52895080)
+13. [#加速# 原版 & 魔改版 Google BBR 拥塞控制算法一键安装脚本](https://www.vultrcn.com/5.html)
+14. [聊聊网络加速的东东](http://www.yunweipai.com/archives/23428.html)

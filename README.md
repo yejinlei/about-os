@@ -157,3 +157,4 @@
 - [ranxian/xv6-chinese · GitHub](https://github.com/ranxian/xv6-chinese)
 - [从无到有编写一个OS内核](http://www.ilovecl.com/2015/09/15/os_redleaf/)
 - [Operating System Development Series](http://www.brokenthorn.com/Resources/OSDevIndex.html)
+- [Ribose Yim's Tech Blog - How Linux Works](https://riboseyim.com/2019/04/21/Linux-Works)
