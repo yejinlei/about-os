@@ -1,7 +1,23 @@
 # 有关Linux
 *-----Linux学习笔记*
 
-## 一、有关Linux内核原理及思维导图
+## 一、个人学习笔记
+
+分类|列表|参考资料|项目及实践
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+引导及Systemd|[Linux引导过程](./Linux引导过程.md)|[SysVinit简体中文](https://wiki.archlinux.org/index.php/SysVinit_(简体中文))|
+进程管理|[Linux进程管理](./Linux进程管理.md)|
+内存管理|[Linux内存管理](./Linux内存管理.md)|
+文件系统|[Linux文件系统](./Linux文件系统.md)|
+网络管理|[Linux网络管理](./Linux网络管理.md)|
+设备管理|[Linux设备管理](./Linux设备管理.md)|
+虚拟化技术|1.[Linux虚拟化技术](./Linux虚拟化技术.md)<br>2.[有关Qemu](./有关Qemu.md)|
+容器及运维|[Linux容器及编排技术](./Linux容器及编排技术.md)<br>|
+性能优化|[Linux调试及跟踪](./Linux工具集.md)|
+系统编程|[Linux模块编程](./Linux模块编程.md)|
+C及SHELL编程|1.[Linux Shell编程](./Linux—Shell编程.md)<br>2.[LLVM编译器](https://github.com/yejinlei/about-compiler/有关LLVM编译器.md)<br>3.[GIT版本控制](https://github.com/yejinlei/about-git)|
+
+## 二、有关Linux内核原理及思维导图
 
 <details><summary>linux kernel map</summary>
 
@@ -62,23 +78,6 @@
 ![](doc/protocols.png)
 
 </details>
-
-## 二、个人学习笔记
-
-分类|列表|参考资料|项目及实践
-:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-引导及Systemd|[Linux引导过程](./Linux引导过程.md)|[SysVinit简体中文](https://wiki.archlinux.org/index.php/SysVinit_(简体中文))|
-进程管理|[Linux进程管理](./Linux进程管理.md)|
-内存管理|[Linux内存管理](./Linux内存管理.md)|
-文件系统|[Linux文件系统](./Linux文件系统.md)|
-网络管理|[Linux网络管理](./Linux网络管理.md)|
-设备管理|[Linux设备管理](./Linux设备管理.md)|
-虚拟化技术|[Linux虚拟化技术](./Linux虚拟化技术.md)<br>[有关Qemu](./有关Qemu.md)|
-容器及运维|[Linux容器及编排技术](./Linux容器及编排技术.md)<br>|
-性能优化|[Linux调试及跟踪](./Linux工具集.md)|
-系统编程|[Linux模块编程](./Linux模块编程.md)|
-C及SHELL编程|1.[Linux Shell编程](./Linux—Shell编程.md)<br>2.[LLVM编译器](https://github.com/yejinlei/about-compiler/有关LLVM编译器.md)<br>3.[GIT版本控制](https://github.com/yejinlei/about-git)|
-
 
 ## 三、资料
 - UNIX Linux系统管理技术手册（第4版）
