@@ -63,11 +63,11 @@
 
 </details>
 
-### 个人学习笔记
+## 二、个人学习笔记
 
-分类|列表|
-:-------------------------:|:-------------------------:
-引导及Systemd|[Linux引导过程](./Linux引导过程.md)|
+分类|列表|参考资料|项目及实践
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+引导及Systemd|[Linux引导过程](./Linux引导过程.md)|[SysVinit简体中文](https://wiki.archlinux.org/index.php/SysVinit_(简体中文))|
 进程管理|[Linux进程管理](./Linux进程管理.md)|
 内存管理|[Linux内存管理](./Linux内存管理.md)|
 文件系统|[Linux文件系统](./Linux文件系统.md)|
@@ -80,8 +80,7 @@
 C及SHELL编程|1.[Linux Shell编程](./Linux—Shell编程.md)<br>2.[LLVM编译器](https://github.com/yejinlei/about-compiler/有关LLVM编译器.md)<br>3.[GIT版本控制](https://github.com/yejinlei/about-git)|
 
 
-##资料
-- [SysVinit (简体中文)] (https://wiki.archlinux.org/index.php/SysVinit_\(简体中文\))
+## 三、资料
 - UNIX Linux系统管理技术手册（第4版）
 - Linux命令行与Shell脚本编程大全
 - 《30天自制操作系统》
