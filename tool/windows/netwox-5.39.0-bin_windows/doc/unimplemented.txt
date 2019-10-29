@@ -1,0 +1,36 @@
+          Laurent CONSTANTIN's network toolbox (netwox)
+               -----------------------------------
+
+                 -------------------------------
+                 |   UNIMPLEMENTED IN NETWOX   |
+                 -------------------------------
+
+Netwox's objective is to contain a lot of tools.
+Some are not fully implemented at 100%. Indeed, some features
+are not frequently needed.
+
+This file describes features which are not expected to be
+implemented. File todo.txt includes the ones which are planned
+for next months.
+
+* IP OPTIONS :
+   Only options of RFC 791 are implemented. Others, are dealt as
+   a byte array.
+
+* Sniffer :
+   Decoded protocols are :
+    - Ethernet
+    - IP
+    - IP options (rfc 791)
+    - ICMP (rfc 792)
+    - UDP
+    - TCP
+    - ARP/RARP
+
+* Performance :
+   Most tools are monothread. So, they are not very fast to do
+   repetitive tasks.
+
+
+Do not hesitate to contact me if you need the presented points.
+

@@ -1,0 +1,437 @@
+                        Network toolbox netwox
+
+              -------------------------------------------
+              |              KNOWN PROBLEMS             |
+              -------------------------------------------
+
+This file describes known problems (incompatibilities, unsupported
+features, errors, etc.).
+If you seek help (usage help, examples, etc.), it's better to read 
+netwib-5.39.0-doc_html.tgz or netwox-5.39.0-doc_html.tgz.
+
+Problems described in this file are (if you encounter an unknown problem,
+thanks for contacting me, as explained in ./doc/problemreport.txt):
+
+PROBLEMS CAUSED BY THE SYSTEM
+ 1: [Windows] Display is slow.
+ 2: [Windows 95] At netwib end, the modem link stops.
+ 3: [Windows XP] Converting an IP address to a hostname returns a bad value.
+
+PROBLEMS CAUSED BY LIBPCAP OR WINPCAP
+ 4: [Windows] Several tools of netwox doesn't seem to work.
+ 5: [Windows] Sniff does not work with a modem
+ 6: [Windows] Popup: The dynamic library wpcap.dll was not found. 
+    [Note: I'am not sure about the exact error message because I do not 
+    have access to an English computer]
+
+PROBLEMS CAUSED BY NETWIB'S DESIGN
+ 7: Why running 'netwox 1' ?
+ 8: Several tools do not work.
+ 9: Network configuration is incorrect.
+10: Error messages contains inaccurate hints
+11: Netwib is slow.
+
+PROBLEMS CAUSED BY NETWOX'S DESIGN
+12: Some tools does not fully work.
+13: Some protocols are not fully implemented.
+14: Some tools are not provided.
+15: The name "netwox539" is too long to enter.
+
+
+
+-------------------------------------------------------------------------------
+Problem 1:
+  Problem synthesis:
+    Display is slow.
+  Environment affected by the problem:
+    Windows
+  What's causing the problem:
+    In a msdos console, we cannot print more than 100 lines per seconds.
+  Solution 1:
+    Redirect output in a file:
+      commandname > file
+    However in this case, we do not see when data has to be entered.
+  Solution 2:
+    Use tools, or printprofiles, less verbose.
+
+-------------------------------------------------------------------------------
+Problem 2:
+  Problem synthesis:
+    At netwib end, the modem link stops.
+  Environment affected by the problem:
+    Windows 95 with a modem
+  What's causing the problem:
+    At the end of a program, references to unused object are freed.
+    It's the case for the low level driver of WinPcap (packet.sys).
+    Unfortunately, as explained in WinPcap FAQ, Windows also
+    stops the modem connection. So, at the end of netwox, the phone
+    line stops.
+  Solution 1:
+    Installation of:
+     - Windows Sockets 2 Update, and
+     - Dialup Networking 1.3 Update
+    might resolv this problem. 
+    Those updates are available here:
+     - http://www.microsoft.com/windows95/downloads/contents/wuadmintools/s_wunetworkingtools/w95sockets2/default.asp
+     - http://www.microsoft.com/Windows95/downloads/contents/WURecommended/S_WUNetworking/dun13win95/Default.asp
+  Solution 2:
+    You can contact WinPcap developers to help them to write a 
+    driver/dll not having this problem.
+    Additional note (march 2004): Windows 9x is no more supported by
+    WinPcap developers.
+
+-------------------------------------------------------------------------------
+Problem 3:
+  Problem synthesis:
+    Converting an IP address to a hostname returns a bad value.
+  Environment affected by the problem:
+    Windows XP
+  What's causing the problem:
+    Functions netwib_ip_init_buf(...NETWIB_IP_DECODETYPE_HN...) use
+    gethostbyaddr(). However, there is a bug in WindowsXP's
+    implementation of gethostbyaddr, as described in Knowledge Base
+    Q317936 of Microsoft.
+    This bug appears when DNSorWINS and NetBIOSoverTCPIP are activated.
+  Solution:
+    Patch Q317936 corrects this problem.
+
+-------------------------------------------------------------------------------
+Problem 4:
+  Problem synthesis:
+    Several tools of netwox doesn't seem to work.
+  Environment affected by the problem:
+    Windows
+  What's causing the problem:
+    Netwib depends on WinPcap. If WinPcap does not work, several
+    features of netwib/netwox will not work.
+    So, we have to ensure WinPcap works correctly.
+  Solution:
+    Install and test windump as described in INSTALL_FR.TXT.
+
+-------------------------------------------------------------------------------
+Problem 5:
+  Problem synthesis:
+    Sniff does not work with a modem
+  Environment affected by the problem:
+    Windows
+  What's causing the problem:
+    WinPCAP is not designed to work with a modem.
+    File netwox-5.39.0-doc-html.tgz/en/examples.html lists systems where
+    modems are supported.
+  Solution:
+    If your system does not support modems, try to apply WinPCAP solution:
+      http://winpcap.polito.it/misc/dialup.htm
+
+-------------------------------------------------------------------------------
+Problem 6:
+  Problem synthesis:
+    Popup: The dynamic library wpcap.dll was not found. 
+    [Note: I'am not sure about the exact error message because I do not 
+    have access to an English computer]
+  Environment affected by the problem:
+    Windows
+  What's causing the problem:
+    WinPCAP is not installed.
+  Solution:
+    Download and install WinPCAP as described in INSTALL.TXT
+    or INSTALLWINDOWS.TXT.
+
+-------------------------------------------------------------------------------
+Problem 7:
+  Problem synthesis:
+    Why running 'netwox 1' ?
+  Environment affected by the problem:
+    All
+  What's causing the problem:
+    Obtaining the configuration (device, arp cache, routes) of the 
+    local computer is an important step of netwib. Several tools need
+    this configuration to be accurate.
+    Different kinds of network cards, modems, operating systems, etc.
+    exist. So, it's possible that your computer contains unrecognized
+    hardware. In this case, several netwox tools would be 
+    unusable.
+    For these reasons, the first tool to use is 'netwox 1' to
+    ensure correct configuration setting.
+    Here is a correct example (taken on Linux):
+    ################################### Devices ################################
+    nu dev   ethernet_hwtype   mtu   real_device_name
+    1  Lo0   loopback          3924  lo
+    2  Eth0  aa:aa:aa:aa:aa:aa 1500  eth0
+    3  Eth1  bb:bb:bb:bb:bb:bb 1500  eth1
+    ##################################### IP ###################################
+    nu ip             /netmask                    ppp point_to_point_with
+    1  127.0.0.1      /255.0.0.0                  0
+    2  192.168.1.1    /255.255.255.0              0
+    3  192.168.2.1    /255.255.255.0              0
+    3  192.168.3.1    /255.255.255.0              0
+    ############################## ArpCache/Neighbor ###########################
+    nu ethernet          ip
+    2  aa:aa:aa:aa:aa:aa 192.168.1.1
+    3  bb:bb:bb:bb:bb:bb 192.168.2.1
+    3  bb:bb:bb:bb:bb:bb 192.168.3.1
+    2  cc:cc:cc:cc:cc:cc 192.168.1.254
+    #################################### Routes ################################
+    nu destination    /netmask         source              gateway        metric
+    1  127.0.0.1      /255.255.255.255 local                                   0
+    2  192.168.1.1    /255.255.255.255 local                                   0
+    3  192.168.2.1    /255.255.255.255 local                                   0
+    3  192.168.3.1    /255.255.255.255 local                                   0
+    2  192.168.10.0   /255.255.255.0   192.168.1.1                             0
+    3  192.168.21.0   /255.255.255.0   192.168.2.1                             0
+    3  192.168.31.0   /255.255.255.0   192.168.1.1                             0
+    1  127.0.0.0      /255.0.0.0       127.0.0.1                               0
+    2  0.0.0.0        /0.0.0.0         192.168.1.1        192.168.1.254        0
+    In this example, we see the loopback device (lo, or Lo0, number 1), and
+    two network cards (eth0 and eth1, respectively number 2 and 3).
+    Network card 2 has IP address 192.168.1.1, and network card 3 has two
+    IP addresses (192.168.2.1 and 192.168.3.1).
+    The arp table contains permanent entries, and the dynamic entry for
+    the router 192.168.1.254.
+    The routing table first contains entries to access local devices, then
+    network connected to the local devices, and finally the default router
+    192.168.1.254.
+  Solution:
+    As I cannot have access to your hardware, you have to send me information
+    about your configuration in order to help netwib's improvements.
+    Run:
+      netwox 2 > resultfile
+    Then, send me the file 'resultfile', along with configuration information
+    (ifconfig, ipconfig /all, arp -a, route print, netstat -rn, 
+    winipcfg /all /batch file.out, winipcfg, network card type, modem type,
+    etc.). Thanks.
+
+-------------------------------------------------------------------------------
+Problem 8:
+  Problem synthesis:
+    Several tools do not work.
+  Environment affected by the problem:
+    All
+  What's causing the problem:
+    Obtaining the configuration (device, arp cache, routes) of the 
+    local computer is an important step of netwib. Several tools need
+    this configuration to be accurate.
+    Different kinds of network cards, modems, operating systems, etc.
+    exist. So, it's possible that your computer contains unrecognized
+    hardware. In this case, several netwox tools would be 
+    unusable.
+    For these reasons, the first tool to use is 'netwox 1' to
+    ensure correct configuration setting.
+    Here is a correct example (taken on Linux):
+    ################################### Devices ################################
+    nu dev   ethernet_hwtype   mtu   real_device_name
+    1  Lo0   loopback          3924  lo
+    2  Eth0  aa:aa:aa:aa:aa:aa 1500  eth0
+    3  Eth1  bb:bb:bb:bb:bb:bb 1500  eth1
+    ##################################### IP ###################################
+    nu ip             /netmask                    ppp point_to_point_with
+    1  127.0.0.1      /255.0.0.0                  0
+    2  192.168.1.1    /255.255.255.0              0
+    3  192.168.2.1    /255.255.255.0              0
+    3  192.168.3.1    /255.255.255.0              0
+    ############################## ArpCache/Neighbor ###########################
+    nu ethernet          ip
+    2  aa:aa:aa:aa:aa:aa 192.168.1.1
+    3  bb:bb:bb:bb:bb:bb 192.168.2.1
+    3  bb:bb:bb:bb:bb:bb 192.168.3.1
+    2  cc:cc:cc:cc:cc:cc 192.168.1.254
+    #################################### Routes ################################
+    nu destination    /netmask         source              gateway        metric
+    1  127.0.0.1      /255.255.255.255 local                                   0
+    2  192.168.1.1    /255.255.255.255 local                                   0
+    3  192.168.2.1    /255.255.255.255 local                                   0
+    3  192.168.3.1    /255.255.255.255 local                                   0
+    2  192.168.10.0   /255.255.255.0   192.168.1.1                             0
+    3  192.168.21.0   /255.255.255.0   192.168.2.1                             0
+    3  192.168.31.0   /255.255.255.0   192.168.1.1                             0
+    1  127.0.0.0      /255.0.0.0       127.0.0.1                               0
+    2  0.0.0.0        /0.0.0.0         192.168.1.1        192.168.1.254        0
+    In this example, we see the loopback device (lo, or Lo0, number 1), and
+    two network cards (eth0 and eth1, respectively number 2 and 3).
+    Network card 2 has IP address 192.168.1.1, and network card 3 has two
+    IP addresses (192.168.2.1 and 192.168.3.1).
+    The arp table contains permanent entries, and the dynamic entry for
+    the router 192.168.1.254.
+    The routing table first contains entries to access local devices, then
+    network connected to the local devices, and finally the default router
+    192.168.1.254.
+  Solution:
+    As I cannot have access to your hardware, you have to send me information
+    about your configuration in order to help netwib's improvements.
+    Run:
+      netwox 2 > resultfile
+    Then, send me the file 'resultfile', along with configuration information
+    (ifconfig, ipconfig /all, arp -a, route print, netstat -rn, 
+    winipcfg /all /batch file.out, winipcfg, network card type, modem type,
+    etc.). Thanks.
+
+-------------------------------------------------------------------------------
+Problem 9:
+  Problem synthesis:
+    Network configuration is incorrect.
+  Environment affected by the problem:
+    All
+  What's causing the problem:
+    Obtaining the configuration (device, arp cache, routes) of the 
+    local computer is an important step of netwib. Several tools need
+    this configuration to be accurate.
+    Different kinds of network cards, modems, operating systems, etc.
+    exist. So, it's possible that your computer contains unrecognized
+    hardware. In this case, several netwox tools would be 
+    unusable.
+    For these reasons, the first tool to use is 'netwox 1' to
+    ensure correct configuration setting.
+    Here is a correct example (taken on Linux):
+    ################################### Devices ################################
+    nu dev   ethernet_hwtype   mtu   real_device_name
+    1  Lo0   loopback          3924  lo
+    2  Eth0  aa:aa:aa:aa:aa:aa 1500  eth0
+    3  Eth1  bb:bb:bb:bb:bb:bb 1500  eth1
+    ##################################### IP ###################################
+    nu ip             /netmask                    ppp point_to_point_with
+    1  127.0.0.1      /255.0.0.0                  0
+    2  192.168.1.1    /255.255.255.0              0
+    3  192.168.2.1    /255.255.255.0              0
+    3  192.168.3.1    /255.255.255.0              0
+    ############################## ArpCache/Neighbor ###########################
+    nu ethernet          ip
+    2  aa:aa:aa:aa:aa:aa 192.168.1.1
+    3  bb:bb:bb:bb:bb:bb 192.168.2.1
+    3  bb:bb:bb:bb:bb:bb 192.168.3.1
+    2  cc:cc:cc:cc:cc:cc 192.168.1.254
+    #################################### Routes ################################
+    nu destination    /netmask         source              gateway        metric
+    1  127.0.0.1      /255.255.255.255 local                                   0
+    2  192.168.1.1    /255.255.255.255 local                                   0
+    3  192.168.2.1    /255.255.255.255 local                                   0
+    3  192.168.3.1    /255.255.255.255 local                                   0
+    2  192.168.10.0   /255.255.255.0   192.168.1.1                             0
+    3  192.168.21.0   /255.255.255.0   192.168.2.1                             0
+    3  192.168.31.0   /255.255.255.0   192.168.1.1                             0
+    1  127.0.0.0      /255.0.0.0       127.0.0.1                               0
+    2  0.0.0.0        /0.0.0.0         192.168.1.1        192.168.1.254        0
+    In this example, we see the loopback device (lo, or Lo0, number 1), and
+    two network cards (eth0 and eth1, respectively number 2 and 3).
+    Network card 2 has IP address 192.168.1.1, and network card 3 has two
+    IP addresses (192.168.2.1 and 192.168.3.1).
+    The arp table contains permanent entries, and the dynamic entry for
+    the router 192.168.1.254.
+    The routing table first contains entries to access local devices, then
+    network connected to the local devices, and finally the default router
+    192.168.1.254.
+  Solution:
+    As I cannot have access to your hardware, you have to send me information
+    about your configuration in order to help netwib's improvements.
+    Run:
+      netwox 2 > resultfile
+    Then, send me the file 'resultfile', along with configuration information
+    (ifconfig, ipconfig /all, arp -a, route print, netstat -rn, 
+    winipcfg /all /batch file.out, winipcfg, network card type, modem type,
+    etc.). Thanks.
+
+-------------------------------------------------------------------------------
+Problem 10:
+  Problem synthesis:
+    Error messages contains inaccurate hints
+  Environment affected by the problem:
+    All
+  What's causing the problem:
+    Implementing a cross platform compatible error handling is almost
+    impossible (errno, h_errno, GetLatError, WSAGetLastError). The
+    solution chosen in netwib is to leave those error codes untouched.
+    So, if they were previously set by another error, this error
+    will still be present. For example:
+     Error 1099: error in foobar()
+      hint: errno = 19 = No such device
+      hint: h_errno = 2 = Host name lookup failure
+    If function foobar sets errno read errno, else read h_errno.
+  Solution:
+    Just ignore the hint which seems inaccurate.
+
+-------------------------------------------------------------------------------
+Problem 11:
+  Problem synthesis:
+    Netwib is slow.
+  Environment affected by the problem:
+    All
+  What's causing the problem:
+    I choose to create a modular library, easy to use.
+    One of the consequence is the high level structuration of netwib.
+    So, it is slower than a low level programming interface.
+  Solution 1:
+    Using records (netwib_io_init_record_xyz), you can construct your packets,
+    save them, and then send them.
+  Solution 2:
+    You can also use only low level functions of netwib, and create
+    your specific code around.
+    If its still too slow, you should not use netwib and use directly
+    system's functions, or buy a new computer ;)
+
+-------------------------------------------------------------------------------
+Problem 12:
+  Problem synthesis:
+    Some tools does not fully work.
+  Environment affected by the problem:
+    All
+  What's causing the problem:
+    Netwox's development contains several branches, each one having its 
+    own priority. I cannot develop everything in one day:). So, my 
+    priorities might not be the same as yours.
+    Moreover, only frequently used part of protocols are implemented.
+  Solution 1:
+    Read todo.txt to obtain list of action to be done.
+  Solution 2:
+    Read unimplemented.txt to obtain the list of unimplemented stuff.
+  Solution 3:
+    Contact-me to explain your needs.
+
+-------------------------------------------------------------------------------
+Problem 13:
+  Problem synthesis:
+    Some protocols are not fully implemented.
+  Environment affected by the problem:
+    All
+  What's causing the problem:
+    Netwox's development contains several branches, each one having its 
+    own priority. I cannot develop everything in one day:). So, my 
+    priorities might not be the same as yours.
+    Moreover, only frequently used part of protocols are implemented.
+  Solution 1:
+    Read todo.txt to obtain list of action to be done.
+  Solution 2:
+    Read unimplemented.txt to obtain the list of unimplemented stuff.
+  Solution 3:
+    Contact-me to explain your needs.
+
+-------------------------------------------------------------------------------
+Problem 14:
+  Problem synthesis:
+    Some tools are not provided.
+  Environment affected by the problem:
+    All
+  What's causing the problem:
+    Netwox's development contains several branches, each one having its 
+    own priority. I cannot develop everything in one day:). So, my 
+    priorities might not be the same as yours.
+    Moreover, only frequently used part of protocols are implemented.
+  Solution 1:
+    Read todo.txt to obtain list of action to be done.
+  Solution 2:
+    Read unimplemented.txt to obtain the list of unimplemented stuff.
+  Solution 3:
+    Contact-me to explain your needs.
+
+-------------------------------------------------------------------------------
+Problem 15:
+  Problem synthesis:
+    The name "netwox539" is too long to enter.
+  Environment affected by the problem:
+    All
+  What's causing the problem:
+    I choose the name "netwox" followed by its version number. However,
+    you may think that pressing those keys is too long.
+  Solution:
+    You just need to copy netwox539 or to create a link:
+     - Unix:
+        ln -s /usr/local/bin/netwox539 /usr/local/bin/nx
+     - Windows:
+        copy netwox539.exe nx.exe

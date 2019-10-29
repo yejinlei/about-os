@@ -1,0 +1,132 @@
+            ----------------------------------------------
+            |             NETWOX 's CONTRIBUTORS         |
+            ----------------------------------------------
+
+This file lists people who contributed in developing netwox. 
+
+                             ------------
+
+http://www.digital-network.org/
+ Previous web provider.
+
+Pavel Evdokimov
+ September 2002 : Russian translation.
+
+George (aka Mindrider)
+ September 2002 : Hellenic translation.
+
+Baha "rage" DERICIOGULLARI (017913 at students dot emu dot edu dot tr)
+ Since January 2004 : Turkisk translation of the website.
+
+                             ------------
+
+Xeno <snikt at cyberspace dot org>
+ February2002/4.05 : port to MacOS X (except spoofing functions)
+ March2002/4.08 : bug in genemake about MacOS X : ppp instead of ppc
+ March2002/4.08 : idea for display of negative values in numeric
+                  conversion tools.
+
+Nick Drage <lcrzo at metastasis dot demon dot co dot uk>
+ March2002/4.07 : English spelling corrections
+ March2002/4.07 : In help mode, upper value for HTTP clients was
+                  incorrect (202 instead of 294).
+ March2002/4.08 : English spelling corrections
+ March2002/4.08 : Ethernet address in description of few tools 
+                  was not correct ("aa:bbcc:dd:ee:ff").
+ March2002/4.08 : idea for tool 351
+ March2002/4.08 : idea for fixed length display of binary data in numeric
+                  conversion tools.
+ March2002/4.08 : Update of text displayed in tool 176.
+ March2002/4.08 : idea for tools 248..251,319,320 (ping tools) : user
+                  can specify the max number of sent packets.
+ April2002/4.09 : patch for tool 175 because displayed information
+                  was mis-aligned.
+
+Sebastien Salladin <sebastien dot salladin at aql dot fr>
+ March2002/4.08 : Tool 208 crashed, when no answer was received, 
+                  because of a free() on an unallocated memory area.
+
+Minos <minos at enib dot fr>
+ April2002/4.08 : remarks about compilation problems with g++
+
+Contributor who wanted to be anonymously listed
+ April2002/4.09 : bug in tools using lcrzo_device_value_pos(
+                  LCRZO_DEVICE_TYPE_ONLYBOARDS, etc.) when there
+                  is no Ethernet card in the computer.
+
+Steven Vanberghen <svanberghen at expectra dot be>
+ August2002/4.13 : Tool 286 cannot retrieve a FTP site having
+                   a directory name containing space. Tool 409
+		   uses another algorithm (walk through instead
+                   of staying at the root), so it corrects the
+                   problem.
+
+Christophe Delahaye <christophe dot delahaye at aql dot fr>
+ August2002/4.14 : In shared_http_appendm_authbasiclogpass and
+                   shared_http_appendm_proxyauthbasiclogpass,
+                   output parameter pdatasize was not set when login
+                   and password were NULLs.
+ October2002/4.16 : In tool 351, if user specified a bad tool
+                    number, the displayed error was about tool 351
+                    instead of the bad tool.
+ October2002/4.16 : In tool 324, under Windows (except 2k and XP),
+                    if the range contained an unreachable computer,
+                    the tool stopped.
+ November2002/4.17 : In tools 281..284, FTP transfers were done in
+                     the default type of the server. So, with some
+		     servers, ascii mode was used instead
+                     of binary mode, and files were corrupted.
+ 2003,2004/5.x : Several usage suggestions which permitted to
+                 improve tools. I cannot remember them all. A big
+                 thanks to him.
+
+Eric Sommer <esommer at cisco dot com>
+ August2002/4.14 : In tools 97, 98, 99, 107, 105, 191, 193, 195,
+                   197, 199, 201 and 203, client and server ports
+                   were reverted.
+
+Anand Jain <jainanand at rediffmail dot com>
+ August2002/4.14 : In tool 134, if a class B network was used, 
+                   edge addresses were not correct.
+ Sept2002/4.15 : Tool 134 entered an infinite loop when used on
+                 class B network.
+
+"yigael" <yigael at berger-domain dot com>
+ October2002/4.16 : In tool 60, an ACK was sent instead of a RST
+
+Neil Cafferkey <caffer at cs dot ucc dot ie>
+ November2002/4.17 : Test of lcrzo/ex with Linux under PPC processor.
+
+Yannick Koehler <yannick dot koehler at colubris dot com>
+ 4.17.0.1 : patch to support RADIUS features, available
+            separately on the web site
+
+Olivier Thauvin <olivier dot thauvin at aerov dot jussieu dot fr>
+ October2003/5.5.0 : Improvements in genemake file to support a more
+                     generic installation.
+                     Creation of Mandrake Cooker packages.
+
+Olivier Thauvin <olivier dot thauvin at aerov dot jussieu dot fr>
+ October2003/5.5.0 : Improvements in genemake file to support a more
+                     generic installation.
+                     Creation of Mandrake Cooker packages.
+
+Jens-Harald Johansen <Jens-Harald dot Johansen at hydro dot com>
+ December2003/5.6.0 : Under Linux, when a network card had no IP
+                      address, it was not possible to use it for
+                      sniffing or spoofing. The problem was that
+                      netwib didn't retrieve the associated
+                      configuration (see netwib's changelog).
+
+Stef <stefmit at comcast dot net>
+ March2004/5.12.0 : Report of compilation errors occurring after
+                    script changes in version 5.10.0.
+
+Suresh Ravindran <suresh at foundrynet dot com>
+ April2004/5.15.0 : Report of files in netwib-5.14.0-bin_windows
+                    which were generated using version 5.13.0 of netwib.
+
+Bartosz Fenski <fenio at debian dot org>
+ April2005/5.30.0 : Debian package at
+                    http://packages.qa.debian.org/n/netw-ib-ox-ag.html
+

@@ -1,0 +1,33 @@
+               Laurent CONSTANTIN's network toolbox (netwox)
+
+                      --------------------------------
+                      |           TODO LIST          |
+                      --------------------------------
+
+Simple protocols:
+ - POP3 (client, rfc 1939)
+ - IMAP4 (client, rfc 3501)
+ ? SOCKS (rfc 1928, 1929)
+
+Complex protocols:
+ - LDAP ([v3]rfc 2251-56, 2829-30, 3377 and [v2]rfc 1777-79, 1959-60)
+ ? RPC (rfc 1831)
+ ? NFS (rfc 3530, 3010)
+
+Other tools:
+ - Implement cookies in HTTP protocol.
+ - Implement vstack.c
+ - Test a firewall with a computer having two network cards. A file
+   describes allowed rules. The tool checks them, and their variations.
+ - Backdoor using TCP ACK, ICMP ping, UDP dns, etc to communicate.
+
+Note about NETWIB_BUF_FLAGS_SENSITIVE:
+ Netwox uses parameters from command line, so wiping memory is not
+ very efficient because they can be seen from a ps or in the argv
+ array. I don't plan to implement a very strict sensitive memory
+ management in netwox. However, it could be done :
+  - in FTP, HTTP, etc. modules (search for password) [I did a quick
+    first usage, but it have to be improved]
+  - in crypto modules
+ The only real usage, is when netwox modules are extracted from netwox
+ and inserted in another GPL program.

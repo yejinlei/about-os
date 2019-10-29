@@ -1,0 +1,915 @@
+             Laurent CONSTANTIN's network toolbox (netwox)
+
+
+            ----------------------------------------------
+            |              NETWOX 's CHANGELOG           |
+            ----------------------------------------------
+
+
+---------------------------------------------------------------------
+Version 5.39.0 - 8-Jul-2012
+
+ ++ fixed bugs ++
+  - Tool 117 (recursive deletion of a FTP directory) failed to remove
+    the directory when it was not the root directory.
+  - Tool 180 (NTP client) incorrectly checked the version in received
+    packets.
+
+ ++ minor evolutions ++
+  - Update the url of the website: http://ntwox.sourceforge.net/
+  - Corrected minor compiler warnings.
+
+ ++ compiler change ++
+  - The Windows binary (netwox.exe) is now compiled with Dev-C++
+    (Mingw32), instead of Microsoft Visual. If you want to compile
+    your own binary with Microsoft Visual from sources, just read
+    netwox-src/INSTALLWINDOWS.TXT.
+
+
+---------------------------------------------------------------------
+Version 5.38.0 - 14-Feb-2010
+
+ ++ fixed bugs ++
+  - Tool 161 (SNMP Trap) used a timestamp of type Integer instead of
+    TimeTicks. Thanks to Tom for reporting it.
+
+ ++ minor evolutions ++
+  - Use netwib__debug_ctrlc_pressed_break() to find memory leaks
+    in debug mode.
+
+
+---------------------------------------------------------------------
+Version 5.37.0 - 19-Dec-2009
+
+ ++ fixed bugs ++
+  - Suppress gcc 4.3 warnings about unused functions.
+  - Correct a memory leak when decoding DNS packets. This leak was
+    due to a missing netwox_dnsrr_close() call in the
+    netwox_pkt_decode_dns_question() function. Thanks to Nilesh
+    Khambal for reporting it.
+
+ ++ major evolutions ++
+  - Change GPLv2 to GPLv3.
+  - Add tool 223 to forward an email.
+
+
+---------------------------------------------------------------------
+Version 5.36.0 - 01-Nov-2008
+
+ ++ fixed bugs ++
+  - In netwox_httphdr_host(), a ':' was missing between the host and
+    the port number, so the Host header was set with "www.s.dom8080"
+    instead of "www.s.dom:8080".
+  - Installation directories were not created with mode 0755, so if
+    root has a strict umask, users could not read the files in the
+    directories.
+
+ ++ minor evolutions ++
+  - The 'Q' parameter in tool 7 can be used to lose privileges after
+    the snif device has been open.
+
+
+---------------------------------------------------------------------
+Version 5.35.0 - 05-Oct-2006
+
+ ++ fixed bugs ++
+  - Some whois servers wants the query and the newline to be sent in
+    the same TCP packet.
+
+ ++ major evolutions ++
+  - In the webspider, the local url algorithm was rewritten. Files
+    are now stored in directories whose name are not related to real
+    url path. This suppress limitations such as maxsegmentlen and
+    maxtotallen. This also optimizes the number of files in
+    directories. New mimetypes, mimetypeswarn and deletedextensions
+    parameters are available (run "netwox 137 file" for help on
+    these parameters).
+  - Parameters of webspider tools 211 and 212 changed. These tools
+    associate urls and their local downloaded filenames.
+  - New tool 222 to suppress local urls/uris in a HTML file.
+
+ ++ minor evolutions ++
+    None in this version
+
+ ++ internal evolutions (not seen by end users) ++
+  - Partial usage of NETWIB_BUF_FLAGS_SENSITIVE.
+
+
+---------------------------------------------------------------------
+Version 5.34.0 - 05-Apr-2006
+
+ ++ fixed bugs ++
+    None in this version
+
+ ++ major evolutions ++
+    None in this version
+
+ ++ minor evolutions ++
+    None in this version
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+
+---------------------------------------------------------------------
+Version 5.33.0 - 20-December-2005
+
+ ++ fixed bugs ++
+    None in this version
+
+ ++ major evolutions ++
+  - Implementation of MD2, RIPEMD-128, RIPEMD-160, SHA-1, SHA-224,
+    SHA-256, SHA-384 and SHA-512 cryptographic hash functions.
+  - Tool 219: compute cryptographic hash of a file (md5, sha, etc.)
+  - Tool 220 and 221: encode and decode a base64 file.
+
+ ++ minor evolutions ++
+  - Tool 218: run internal test suite (for netwox developers).
+  - In tool 22, add support for other cryptographic hash functions.
+
+ ++ internal evolutions (not seen by end users) ++
+  - Modules are moved in sub-directories.
+
+
+---------------------------------------------------------------------
+Version 5.32.0 - 24-November-2005
+
+ ++ fixed bugs ++
+  - Tool 19 : range check was incorrect.
+  - Function netwox_mime_hdrencode() did not correctly encode some
+    characters. This function is used in mail and nntp clients.
+
+ ++ major evolutions ++
+  - Tool 217 is a SMB/CIFS server. Microsoft Windows and Samba
+    clients can be used to connect to this server.
+
+ ++ minor evolutions ++
+    None in this version
+
+ ++ internal evolutions (not seen by end users) ++
+  - Improvements in smb modules in order to support Windows 95, 98,
+    Me, NT4, 2000, XP, Samba 2/3. Note: I don't have access to a
+    Windows 2003 computer, so I can't check it works.
+
+
+---------------------------------------------------------------------
+Version 5.31.0 - 12-October-2005
+
+ ++ fixed bugs ++
+  - In SMB clients, --netbiosname parameter had a bad default value.
+    User needed to always set the value to overwrite this bad
+    default.
+  - In SMB clients, do not use Unicode/NTerror before it has been
+    negotiated.
+  - In web spider, do not try to convert special attributes, such as
+    object classid="special", to uris.
+  - Traceroute tools displayed an error after sending last hop
+    packet. Thanks to Marc Turpin for reporting the problem.
+
+ ++ major evolutions ++
+  - In tcp/udp performance tools, display better error messages. For
+    udp, the number of packets sent/received is also displayed.
+
+ ++ minor evolutions ++
+  - In web spider, a new option displays the current number of
+    downloaded files over the total number to download (loglevel 5).
+  - Detail description of tree top entries.
+
+ ++ work in progress ++
+  - Tool 217 is a SMB server. It contains known bugs, so it has to 
+    be considered as EXPERIMENTAL. I plan to gradually improve it in
+    next versions.
+    It supports only one share.
+    It can be used to download or upload files or directories.
+    It does not support locking, so files cannot be edited live.
+    Currently, it should work with most Windows NT and Windows 2000
+    clients.
+
+
+---------------------------------------------------------------------
+Version 5.30.0 - 30-March-2005
+ ++ important ++
+    Netw project is still paused.
+
+ ++ fixed bugs ++
+    None in this version
+
+ ++ major evolutions ++
+    None in this version
+
+ ++ minor evolutions ++
+    None in this version
+
+ ++ internal evolutions (not seen by end users) ++
+  - When compiling netwox on a 64 bit processor, there were 3
+    warnings.
+
+ ++ thanks ++
+  - Bartosz Fenski (aka fEnIo) maintains a Debian package at
+    http://packages.qa.debian.org/n/netw-ib-ox-ag.html
+
+
+---------------------------------------------------------------------
+Version 5.29.0 - 21-February-2005
+ ++ important ++
+    As some of you noticed, netw project paused since January 1st.
+    This is due to my professional/enterprise project where I have to
+    do a lot of private work. It should end on september, so I expect
+    to be back on netw on october. In the meantime, bugs will be
+    corrected, but no major tool is expected. Note: don't worry, my
+    boss is not forcing me to work on WE, but I want this project to
+    take a giant step :-)
+
+ ++ fixed bugs ++
+  - In tool 210, a variable was not initialized. Tool did not work.
+
+ ++ major evolutions ++
+  - Tool 213 : Display a list of IP addresses
+  - Tool 214 and 215 : Traceroute discovery. This tool draws a graph
+    of remote network. For example :
+      netwox 214 --ips 10.0.0.1-10.10.0.16 --tcpports "25,80" \
+        --udpports "1,53" --icmp --resolve --verbose
+  - Tool 216 : beep
+
+ ++ minor evolutions ++
+  - In uris found in HTML files, the leading and ending spaces,
+    tabulations and newlines are ignored (not in specification, but
+    behave like other browsers).
+  - Most tools had a default timeout of 10 seconds. This was too
+    small for loaded networks. User had to increase timeout on
+    command line. Now it is 60 seconds.
+  - A new bash script library permits to launch several tools
+    simultaneously. It is in directory netwox-src/misc/launcher/.
+    For example, when there is a list of 250 hosts to test, user
+    creates a loop to run a tool on each IP address. However, when a
+    host is down, a timeout occurs only after several seconds, and
+    slows down all the tests. The launch library contains bash
+    functions to run, for example, up to 5 simultaneous commands. It
+    permits to shorter total test time.
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+
+---------------------------------------------------------------------
+Version 5.28.0 - 05-January-2005
+ ++ fixed bugs ++
+  - In tool 21, if --disp-decimal was set, binary was also displayed.
+  - SMB share enumeration packet was not decoded if available shares
+    was less than announced.
+  - Function netwox_md_update caused a segmentation fault if it was
+    previously called with data of size%64 != 0.
+  - In uri canonization, only convert '+' to space in query part.
+
+ ++ major evolutions ++
+  - Tool 210 : web spider limited to requested directory.
+  - Tool 211 : convert a web spidered filename to its url.
+  - Tool 212 : indicates where web spider stored an url.
+
+ ++ minor evolutions ++
+  - SMB tools have a new parameter --verbose to display simple
+    messages. It also decodes most common error codes.
+  - Traceroute tools have a new parameter --resolve to resolve
+    hostnames.
+
+ ++ internal evolutions (not seen by end users) ++
+  - Web spider improvements (faster and less restrictive) in md5
+    filenames storage.
+  - Due to changes in netwib sys/path, some functions were rewritten.
+
+
+---------------------------------------------------------------------
+Version 5.27.0 - 30-November-2004
+ ++ fixed bugs ++
+    None in this version
+
+ ++ major evolutions ++
+    Implementation of SMB/CIFS protocol. This protocol is used for
+    file and printer sharing under Windows. Netwox's implementation
+    only supports file sharing.
+    Currently, only clients are provided :
+      tool 198: list shares
+      tool 199: create a directory
+      tool 200: delete a directory
+      tool 201: rename a directory
+      tool 202: list contents of a directory
+      tool 203: delete a file
+      tool 204: rename a file
+      tool 205: get a file
+      tool 206: put a file
+      tool 207: recursively get a directory
+      tool 208: recursively put a directory
+      tool 209: recursively delete a directory
+    Server is expected for version 5.28.0 of netwox.
+    Note: This protocol is very big, which explains why netwox only
+          had a few changes since 27th of september.
+
+ ++ minor evolutions ++
+    None in this version
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+ ++ port ++
+    Juan Manuel Palacios (jmpp at opendarwin dot org) packaged the
+    Mac OS X centric DarwinPorts Portfiles for netwib, netwox and
+    netwag (http://darwinports.opendarwin.org/). Portfiles can be
+    retrieved by CVS, and will be available soon at :
+      http://darwinports.opendarwin.org/ports
+
+
+---------------------------------------------------------------------
+Version 5.26.0 - 25-October-2004
+ ++ fixed bugs ++
+  - If url contains a fragment (http://server/#frag), it has to be
+    suppressed (http://server/) to download the file. This worked
+    with Apache, but IIS replied with a 400 error code.
+
+ ++ major evolutions ++
+    None in this version
+
+ ++ minor evolutions ++
+  - Tool 185 can be used like a load balancer.
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+ ++ documentation
+    There are no big changes in this version. So, you can take time
+    to read documentation. File netwox-doc_html/html/examples.html is
+    the most important to read.
+    You can also install and try netwag.
+
+
+---------------------------------------------------------------------
+Version 5.25.0 - 27-September-2004
+ ++ fixed bugs ++
+    None in this version
+
+ ++ major evolutions ++
+  - Tool 196 and 197: whois clients.
+  - Support for MD4 checksum in tool 22.
+
+ ++ minor evolutions ++
+    None in this version
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+
+---------------------------------------------------------------------
+Version 5.24.0 - 12-September-2004
+ ++ fixed bugs ++
+  - Memory leak in netwox_ftpclient_dir_ls when data session could
+    not be established.
+
+ ++ major evolutions ++
+  - Tool 191: English/French/Spanish password generator.
+  - Tools 193..195: IDENT clients and server.
+
+ ++ minor evolutions ++
+  - Tool 45 (IPv4 LSRR option) supports several addresses. Tool 192
+    is equivalent, but for SSRR.
+  - Support for passive FTP in web retrieval tools.
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+
+---------------------------------------------------------------------
+Version 5.23.0 - 30-August-2004
+ ++ fixed bugs ++
+    None in this version
+
+ ++ major evolutions ++
+  - Tool 180: SNTP/NTP client displaying date/time.
+  - Tool 181: SNTP/NTP server providing a central time to clients.
+  - Tool 182: obtain the size of a web file.
+  - Tool 183-5: TCP/UDP relays.
+  - Tool 186: sleep for less than one second.
+  - Tool 187: display date and time.
+  - Tool 188: SYSLOG server
+  - Tool 189: SMTP server logging commands and data.
+  - Tool 190: A commonly requested feature.
+
+ ++ minor evolutions ++
+  - Searching description led to a lot of false positives. Now,
+    search is only done in title and synonyms.
+  - Traceroute tools have a new parameter --min-ttl to set starting
+    TTL.
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+ ++ note ++
+  - Some tools require root privileges (for example capturing
+    packets with tool 7). A bug occurring with root privileges can
+    compromise the system. In order to protect system, programs
+    generally separate privileges in two distinct process (or loose
+    privileges if they are not needed anymore). This kind of
+    architecture is too complicated to implement for simple tools
+    such as netwox ones. If this worries you, netwox or netwag can
+    be run in chroot jails. You can create your own jail, or take
+    ideas from script misc/unix/chroot/chroot.sh (Linux). As a
+    final note, tcpdump, Ethereal, nmap, etc are not separating
+    privileges. So, they can also be added in the same jail. Another
+    solution is to use capabilities.
+
+
+---------------------------------------------------------------------
+Version 5.22.0 - 15-August-2004
+ ++ fixed bugs ++
+    None in this version
+
+ ++ major evolutions ++
+  - Each tool have a detailed description. To see it, run
+    "netwox number --help2" (for example "netwox 1 --help2").
+    This description is also available in netwox-doc_html.
+    If you encounter any error, or have some comments to add, please
+    contact me.
+  - Search feature (run "netwox", then press 3 key) improved to find
+    more easily unknown tools.
+    Search is done in title, description and synonyms (for example,
+    searching for "capture" retrieves all tools containing "sniff").
+    Moreover, if a word is not found, its root is searched (for
+    example searching "spoofing" retrieves all tools containing
+    "spoof").
+    If you think a word is missing in a synonym list, please send me
+    a mail.
+
+ ++ minor evolutions ++
+    None in this version
+
+ ++ internal evolutions (not seen by end users) ++
+  - genemake supports compiler options. Read doc/installspecial.txt
+    for instructions for packages creation.
+
+
+---------------------------------------------------------------------
+Version 5.21.0 - 1-August-2004
+ ++ fixed bugs ++
+    None in this version
+
+ ++ major evolutions ++
+  - Implementation of DHCP protocol.
+  - Tool 171: DHCP client obtaining an IP address.
+  - Implementation of NNTP authentication.
+  - Tool 172: List articles range of a newsgroup.
+  - Tool 173: Download overview of one, or more, newsgroup messages.
+  - Tool 174: Download a FTP file and check its MD5.
+  - Tool 175: Download a HTTP file and check its MD5.
+  - Tool 176: Download a TFTP file and check its MD5.
+  - Tool 177: Check if a SMTP server is up.
+  - Tool 178: Check if an IRC server is up.
+  - Tool 179: DHCP client requesting an INFORM.
+
+ ++ minor evolutions ++
+  - Improvements in NNTP tools.
+  - Reorganization of tool tree.
+
+ ++ internal evolutions (not seen by end users) ++
+  - XPM icons are available under src/compil/unix/ico directory. They
+    permit to create nice menus. They are not used during
+    installation process, but can be configured by hand depending on
+    window manager (Gnome, KDE, fvwm, etc.). Package maintainers
+    can also use them.
+
+
+---------------------------------------------------------------------
+Version 5.20.0 - 18-July-2004
+ ++ fixed bugs ++
+    None in this version
+
+ ++ major evolutions ++
+  - Netwox returns 1 on error, and 0 otherwise.
+  - Tool 169 : display a simplified network configuration.
+  - Tool 170 : simple telnet server.
+
+ ++ minor evolutions ++
+    None in this version
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+
+---------------------------------------------------------------------
+Version 5.19.0 - 5-July-2004
+ ++ fixed bugs ++
+  - In web spider, normalize url requested by user. This ensure it is
+    not duplicated.
+
+ ++ major evolutions ++
+  - Tool 168: FTP server. This is a basic implementation. It does not
+    support multiuser, so if run as administrator file access is done
+    with high privileges. This server can be run with user
+    privileges by specifying an alternative port (instead of default
+    21): "netwox 168 -P 1234 --login bob --password mypass". In this
+    case, ftp client has to specify the port. For example in
+    Mozilla: "ftp://server:1234/".
+
+ ++ minor evolutions ++
+  - Tools 125 and 126 (web servers) have one more parameter to limit
+    clients allowed to connect.
+
+ ++ internal evolutions (not seen by end users) ++
+  - Support of 64 bit.
+
+
+---------------------------------------------------------------------
+Version 5.18.0 - 1-June-2004
+ ++ bugs fixed ++
+    None in this version
+
+ ++ major evolutions ++
+  - Program netwox518.exe has toolbox icon.
+  - File netw-ib-ox-ag-5.x.y.tgz permits to easily install netwox
+    and netwag under Unix or Windows.
+
+ ++ minor evolutions ++
+    None in this version
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+
+---------------------------------------------------------------------
+Version 5.17.0 - 24-May-2004
+ ++ bugs fixed ++
+    None in this version
+
+ ++ major evolutions ++
+  - Tools spoofing one packet (32 to 41 and 140 to 147) can create
+    invalid packets (bad totlen, checksums, etc.).
+  - Help mode now permits to run a tool. It is still less easy to use
+    than netwag.
+
+ ++ minor evolutions ++
+  - Support of multiclient virtual TCP server. This implementation
+    is not multithread, but it works.
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+
+---------------------------------------------------------------------
+Version 5.16.0 - 10-May-2004
+ ++ bugs fixed ++
+  - In function netwox_path_root_jail, a variable was not initialized
+    when root directory was unset.
+
+ ++ major evolutions ++
+    None in this version
+
+ ++ minor evolutions ++
+  - Ethernet addresses are automatically obtained from IP addresses
+    when they start with '@'. For example "netwox 4 @192.168.0.1"
+    obtains Ethernet address of 192.168.0.1 (ie 0:1:2:3:4:5) and runs
+    "netwox 4 0:1:2:3:4:5".
+  - Tools needing a password as parameter can use --kbd-parametername
+    to set it without screen echo. For example
+    "netwox 127 --kbd-password -i file1 -o file2" or
+    "netwox 127 --kbd-p -i file1 -o file2".
+  - Under unix shell, '?' char is expanded to match one character.
+    So, "netwox 3 --?" did not work if a file named "--a" was present
+    in current directory. This is very rare to have a file starting
+    with '-', but it could bother users. This feature is still
+    available, but it is no more displayed in help.
+  - Tool 26 can now dump a file using several encode types.
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+
+---------------------------------------------------------------------
+Version 5.15.0 - 21-Apr-2004
+ ++ bugs fixed ++
+  - Files in netwox-5.14.0-bin_windows were generated using version
+    5.13.0 of netwib. A methodology change was made to ensure this
+    stupid mistake will not happen again. Thanks to Suresh Ravindran
+    for reporting this bug.
+
+ ++ major evolutions ++
+    None in this version
+
+ ++ minor evolutions ++
+  - In tool 134, user can specify which kind of uris to display.
+  - Help can be obtained with "netwox number -?", "netwox number ?"
+    or "netwox number --?" Instead of using "netwox number --help".
+    Using "-??", "??" or "--??" is equivalent to "--help2".
+
+ ++ internal evolutions (not seen by end users) ++
+  - Partial rewrite of url canonization functions.
+
+
+---------------------------------------------------------------------
+Version 5.14.0 - 14-Apr-2004
+ ++ bugs fixed ++
+  - In web spider, variable proxyhost didn't activate the proxy.
+  - In tool 160 asn1oid wasn't initialized, so it crashed.
+
+ ++ major evolutions ++
+    None in this version
+
+ ++ minor evolutions ++
+  - Creation of toolbox logo (visible in banners on website).
+  - Web spider now ignores common extensions when retrieving new
+    url to download.
+
+ ++ internal evolutions (not seen by end users) ++
+  - Usage of new netwib_array structure.
+
+
+---------------------------------------------------------------------
+Version 5.13.0 - 05-Apr-2004
+ ++ bugs fixed ++
+  - Due to a bug in netwib (thread memory management) tools 91 (tcp
+    echo), 93 (backdoor server), 125 (web server) and 126 (http
+    backdoor) behaved strangely under load.
+  - Memory leak in tool 93 (backdoor server).
+
+ ++ major evolutions ++
+    None in this version
+
+ ++ minor evolutions ++
+  - Tools needing an IPv6 address now retrieve the IPv6 address of
+    the computer.
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+
+---------------------------------------------------------------------
+Version 5.12.0 - 30-Mar-2004
+ ++ bugs fixed ++
+  - Potential bus error on strict aligned processors (Sparc, IA64,
+    Alpha, etc.) in netwox_asn1data, netwox_asn1oid, netwox_asn1tag
+    and netwox_snmpvbl structures. I say "potential" because the bug
+    cannot cause a bus error (memory alignment problem) even if it's
+    here. This is due to netwib_buf_init_malloc() which returns
+    aligned memory. We are lucky ;)
+
+ ++ major evolutions ++
+  - TFTP protocol implementation
+  - Tool 165 : TFTP get
+  - Tool 166 : TFTP put
+  - Tool 167 : TFTP server
+
+ ++ minor evolutions ++
+    None in this version
+
+ ++ internal evolutions (not seen by end users) ++
+  - Suppress compilation errors on some Mac OS versions. This is due
+    to ranlib refusing the special archive we used to create. Thanks
+    to Stef for reporting this error.
+
+
+---------------------------------------------------------------------
+Version 5.11.0 - 22-Mar-2004
+ ++ bugs fixed ++
+    None in this version
+
+ ++ major evolutions ++
+  - Implementation of SNMP version 1, 2c and 3.
+  - Tools 159 to 164: SNMP get, walk, trap, trap2, inform, set.
+
+ ++ minor evolutions ++
+  - Parameter errors now include the long variable name. For example
+    "Option '-f|--file' is required".
+  - Suppress path in email and news attachments. Thanks to Christophe
+    Delahaye for notifying.
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+
+---------------------------------------------------------------------
+Version 5.10.0 - 3-Mar-2004
+ ++ bugs fixed ++
+  - Some long parameters for tools 135, 152, 153 and 154 were
+    duplicated.
+
+ ++ major evolutions ++
+  - Implementation of ASN.1 protocol.
+  - Tool 155 to 158 : network performance measurement.
+
+ ++ minor evolutions ++
+  - Implementation of TCP retransmit timeout and SYN retransmit
+    in the virtual TCP socket.
+  - Timeout parameter for FTP, SMTP and NNTP tools.
+
+ ++ internal evolutions (not seen by end users) ++
+  - Modules and tools Makefiles now only use one ar command. This
+    is faster, but might cause problems on old systems ("command
+    line too long"). If you encounter a such system, please contact
+    me.
+
+
+---------------------------------------------------------------------
+Version 5.9.0 - 16-Feb-2004
+ ++ bugs fixed ++
+  - The virtual TCP socket did not respect the window parameter. When
+    using a lot of data, the synchronization was lost.
+
+ ++ major evolutions ++
+  - Module irc and ircses implementing IRC protocol.
+  - Tool 152 : interactive IRC client
+  - Tool 153 : IRC client listing channels
+  - Tool 154 : IRC client listening on a channel
+  - Tool help is now separated in two : common parameters (--help)
+    and advanced parameters (--help2). Most users only need common
+    parameters. So, it's easier to find the parameter to set.
+
+ ++ minor evolutions ++
+  - Tool 93 (backdoor server) now have limitations : allowed commands
+    and root directory.
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+
+---------------------------------------------------------------------
+Version 5.8.0 - 2-Feb-2004
+ ++ bugs fixed ++
+  - Some tools returned an error in pcap_compile. It occurred in
+    versions of libpcap < 0.6.
+
+ ++ major evolutions ++
+  - MacOS is now supported.
+  - NetBSD-current is now supported.
+  - HP-UX is now supported.
+
+ ++ minor evolutions ++
+  - Under Windows, project can be compiled with Dev-C++/Mingw32.
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+
+---------------------------------------------------------------------
+Version 5.7.0 - 22-Jan-2004
+ ++ bugs fixed ++
+  - In ftpctl module, function netwox_ftpctl_dir_ls crashed if
+    directory listing contained an unrecognized line.
+  - If an HTML file had an url containing an unrecognized entity,
+    function netwox_htmlfile_urllist_file_read ignored it.
+
+ ++ major evolutions ++
+  - All sniffing and spoofing tools now support IPv6.
+
+ ++ minor evolutions ++
+  - In the webspider, a new parameter (maxtotallen) defines the
+    maximum pathname length. When this limit is reached, files
+    are saved in a md5 root directory.
+
+ ++ internal evolutions (not seen by end users) ++
+  - Support for new structures and functions of netwib.
+
+
+---------------------------------------------------------------------
+Version 5.6.0 - 14-Dec-2003
+ ++ bugs fixed ++
+  - Function netwox_xor_gene_key worked only if keysize was greater
+    than 1024.
+  - In tcp virtual socket clients, session was not correctly closed
+    when client initiated the close : the server was still in
+    LASTACK state.
+  - In tools 112, 113, 115 and 116 (FTP transfer), the mode was not
+    explicitly set to binary.
+
+ ++ major evolutions ++
+  - Tool 127 : cypher/decypher a file using an xor
+  - Tool 128 and 129 : split and reassemble a big file
+  - Tool 130 : FTP brute force
+  - Tool 131 and 132 : HTTP brute force (server and proxy)
+  - Tool 133 : canonize an URL
+  - Tool 134 : obtain a list of URL from a file
+  - Tool 135 : convert urls in a HMTL file to absolute urls
+  - Tool 136 : web download (http://... or ftp://...)
+  - Tool 137,138 and 139 : web spider
+
+ ++ minor evolutions ++
+  - Parameter description when using --help is now easier to
+    understand.
+  - Tools now accept parameter --kbd-name which ask for argument
+    --name from keyboard.
+  - Improvements in error dealing in tool 101 : telnet brute force.
+  - Support for IPv6 addresses in URLs.
+  - HTTP proxy supports FTP URLs.
+  - IPv6 support in FTP.
+  - In HTML documentation examples.html, creation of a paragraph
+    explaining how to use Tcl language to create scripts under
+    Windows.
+
+ ++ internal evolutions (not seen by end users) ++
+  - Optimizations in SMTP, NNTP and FTP protocol implementations.
+
+
+---------------------------------------------------------------------
+Version 5.5.0 - 11-Nov-2003
+
+ ++ bugs fixed ++
+  - Tools 111 to 117 had user and password defined as device buffer.
+    They worked, but netwag's form displayed bad fields.
+  - Memory leak in tool 93 (TCP backdoor server).
+
+ ++ major evolutions ++
+  - Creation of modules url, http* to implement HTTP protocol.
+  - Tool 118 to 124 : http clients
+  - Tool 125 : web server
+  - Tool 126 : backdoor web server
+
+ ++ minor evolutions ++
+  - Creation of module dnscache to optimize host and IP resolution.
+  - Creation of module txthdr to deal with text headers such as
+    those used in SMTP or HTTP protocols.
+
+ ++ internal evolutions (not seen by end users) ++
+  - Improvements in genemake file to support a more generic
+    installation. Thanks to Olivier Thauvin.
+
+
+---------------------------------------------------------------------
+Version 5.4.0 - 28-Oct-2003
+
+ ++ bugs fixed ++
+  - In virtual socket tools, if user specified a device, it was
+    appended twice (eth0 -> eth0eth0). A "not found" error then
+    occurred.
+
+ ++ major evolutions ++
+  - Modules smtp, mail, mime, mailex implementing SMTP protocol.
+  - Tool 106 : send an email
+  - Module nntp implementing NNTP protocol.
+  - Tool 107 : post a newsgroup message
+  - Tool 108 : list groups of a newsgroup server
+  - Tool 109 : download newsgroups messages
+  - Tool 110 : Ethernet bridge limiting flow
+  - Modules ftp and ftpctl implementing FTP protocol.
+  - Tool 111 to 117 : ftp clients
+
+ ++ minor evolutions ++
+  - Error message displayed when first parameter wasn't a number
+    was not easy to understand.
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+
+---------------------------------------------------------------------
+Version 5.3.0 - 19-Oct-2003
+
+ ++ bugs fixed ++
+    None in this version
+
+ ++ major evolutions ++
+  - Module snispo creating an io for sniffing and spoofing.
+  - Modules dns* implementing DNS protocol
+  - Tool 102 : query a DNS server (like dig or nslookup)
+  - Tool 103 : obtain version of a Bind server
+  - Tool 104 : simple dns server
+  - Tool 105 : sniff and spoof DNS answers
+
+ ++ minor evolutions ++
+  - Update of netwox-doc_html to reflect branch 5.
+  - Tools 65 to 72 (scanning tools) have parameter "-n" to specify
+    the number of simultaneous request to send. Please note if this
+    value is too big, unexpected timeout will appear on slow
+    networks (on a 10Mb LAN, the max seems to be around 130). By
+    default, 20 simultaneous requests are sent.
+
+ ++ internal evolutions (not seen by end users) ++
+    None in this version
+
+
+---------------------------------------------------------------------
+Version 5.2.0 - 05-Oct-2003
+
+ ++ bugs fixed ++
+    None in this version
+
+ ++ major evolutions ++
+  - Tool 97 : send a SYSLOG message
+  - Tool 98 : flood a host with syslog messages
+  - Creation of module telnet implementing telnet protocol
+  - Tool 99 : interactive telnet client
+  - Creation of module expect to "expect" data coming from an io
+  - Creation of module telnetses to deal with a telnet session
+  - Tool 100 : execution of a telnet command
+  - Creation of module brute to automatize brute force attacks
+  - Tool 101 : telnet brute force
+
+ ++ minor evolutions ++
+    None in this version
+
+ ++ internal evolutions (not seen by end users) ++
+  - Partial rewrite of module sock
+
+
+---------------------------------------------------------------------
+Version 5.1.0 - 23-Sep-2003
+  This version is a full rewrite. Everything changed.
+
+
+---------------------------------------------------------------------
+Version 5.0.0
+  This version does not exists.

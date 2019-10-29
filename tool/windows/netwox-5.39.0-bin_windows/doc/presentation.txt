@@ -1,0 +1,28 @@
+          Laurent CONSTANTIN's network toolbox (netwox)
+               -----------------------------------
+
+                 -------------------------------
+                 |    PRESENTATION OF NETWOX   |
+                 -------------------------------
+
+Toolbox netwox helps to find and solve network problems.
+
+It provides 223 tools :
+ - udp/tcp clients/servers
+ - spoofing
+ - sniffing
+ - address conversion
+ - etc.
+
+Netwox is mainly oriented towards network administrators and
+security auditors.
+
+Some tools are only a simplified implementation, while others are
+very sophisticated. Read ./unimplemented.txt for more information.
+
+Netwox is available under the GNU GPL license.
+
+Download and read netwox-5.39.0-doc_html.tgz to obtain information about
+netwox.
+http://ntwox.sourceforge.net/
+

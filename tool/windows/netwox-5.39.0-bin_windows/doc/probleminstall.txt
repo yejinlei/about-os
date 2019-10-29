@@ -1,0 +1,17 @@
+                        Network toolbox netwox
+
+              -------------------------------------------
+              |              KNOWN PROBLEMS             |
+              -------------------------------------------
+
+This file describes known problems (incompatibilities, unsupported
+features, errors, etc.).
+If you seek help (usage help, examples, etc.), it's better to read 
+netwib-5.39.0-doc_html.tgz or netwox-5.39.0-doc_html.tgz.
+
+Problems described in this file are (if you encounter an unknown problem,
+thanks for contacting me, as explained in ./doc/problemreport.txt):
+
+Currently, there is nothing to say.
+
+

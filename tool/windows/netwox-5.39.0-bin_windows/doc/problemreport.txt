@@ -1,0 +1,39 @@
+
+If you find errors, thanks for contacting me.
+
+For every bug report, try to indicate :
+ - netwib/netwox/netwag version
+ - libpcap/winpcap version
+ - libnet version (Unix only)
+ - result of the command : netwox 2
+ - system (uname -a under unix)
+ - command or error environment
+ - how to reproduce the error
+ - the patch, if you wrote one
+ - other information you may think useful
+
+As of June 2012, my email address is :
+  laurentconstantin@free.fr
+
+How to create a patch (Unix only) ?
+- Solution 1 : 
+   One file was modified : compare the modified file with the
+   original file :
+     diff -ub file.c.original file.c > /tmp/file.c.patch
+- Solution 2 :
+   Several files were modified : compare the modified directory with the
+   original directory :
+     diff -urbaN netwib-5.39.0-src netwib-5.39.0-src.modified > /tmp/dir.patch
+- Suggestion :
+   If you haven't done the changes, use preferably this method :
+     cd ../..
+     cp -R netwib-5.39.0-src netwib-5.39.0-src.modified
+     cd netwib-5.39.0-src.modified
+     [do your modifications, compilations, tests, etc.]
+     cd ..
+     diff -urbaN netwib-5.39.0-src netwib-5.39.0-src.modified > /tmp/dir.patch
+
+Then, I'll apply the patch with :
+  patch -Nbp1 < file.c.patch 
+  patch -Nbp0 < dir.patch
+

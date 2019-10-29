@@ -1,0 +1,89 @@
+                 -------------------------------
+                 |        INTRODUCTION         |
+                 -------------------------------
+
+Note : if you encounter problems, read ./doc/probleminstall.txt
+
+There are 2 steps :
+ - install winpcap version >= 3.0
+ - install netwox
+
+
+                 -------------------------------
+                 |       STEP 1 : winpcap      |
+                 -------------------------------
+
+If winpcap isn't installed on your system, download it from :
+  http://winpcap.polito.it/
+Version 3.0, or superior, is needed.
+Follow the given instructions in order to install it.
+
+After installing winpcap, you should test if it is working properly.
+If you do not want to bother testing, you can directly go to step 2.
+To test winpcap's installation, you need to download windump :
+  http://windump.polito.it/
+Then, in a console window, if you enter "\directory...\windump",
+network packet will be displayed (for example, you can ping another
+computer and see the packets).
+Once windump displays network packets, you can go to step2.
+
+If you have a problem downloading, installing winpcap, or running 
+windump, read the faq at :
+  http://winpcap.polito.it/
+  http://windump.polito.it/
+If you still have a problem, contact Winpcap's developers.
+I cannot help you, because I do not maintain this code.
+
+Note: If winpcap is not installed, netwib will work, but without
+      sniffing or spoofing features.
+
+
+                 ------------------------------
+                 |       STEP 2 : netwox      |
+                 ------------------------------
+
+                 ----- Windows 95, 98, Me -----
+Generally, %WINDIR% is "C:\Windows".
+
+You have to :
+ - copy "netwib539.dll" to "%WINDIR%\System\netwib539.dll".
+ - open a ms-dos console : Start - Run - "command"
+ - in this console, enter :
+     echo %PATH%
+       This command lists the directories in your path. For example,
+       "%WINDIR%\Command\" is in your path.
+     exit
+       This command closes the ms-dos console
+ - copy "netwox539.exe" in one of the directories of your path
+   (for example you can chose "%WINDIR%\Command\")
+
+                 ------ Windows NT, 2000 ------
+Generally, %WINDIR% is "C:\WINNT".
+
+You have to :
+ - copy "netwib539.dll" to "%WINDIR%\System32\netwib539.dll".
+ - open a ms-dos console : Start - Run - "cmd"
+ - in this console, enter :
+     echo %PATH%
+       This command lists the directories in your path. For example,
+       "%WINDIR%\System32\" is in your path.
+     exit
+       This command closes the ms-dos console
+ - copy "netwox539.exe" in one of the directories of your path
+   (for example you can chose "%WINDIR%\System32\")
+
+                 --------- Windows XP ---------
+Generally, %WINDIR% is "C:\Windows".
+
+You have to :
+ - copy "netwib539.dll" to "%WINDIR%\System32\netwib539.dll".
+ - open a ms-dos console : Start - Run - "cmd"
+ - in this console, enter :
+     echo %PATH%
+       This command lists the directories in your path. For example,
+       "%WINDIR%\System32\" is in your path.
+     exit
+       This command closes the ms-dos console
+ - copy "netwox539.exe" in one of the directories of your path
+   (for example you can chose "%WINDIR%\System32\")
+
