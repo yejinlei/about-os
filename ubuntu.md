@@ -29,6 +29,9 @@
 	
 	#安装golang版本管理工具gvm
 	zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+	
+  #安装nodejs版本管理工具nvm
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | zsh
 
 	#安装R及R Studio Server
 	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
