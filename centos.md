@@ -149,15 +149,18 @@
 
 ## docker容器相关
 	#安装docker-ce
-	sudo yum update
-	sudo yum remove docker  docker-common docker-selinux docker-engine
-	sudo yum install -y yum-utils device-mapper-persistent-data lvm2
-	sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo or sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-	yum list docker-ce --showduplicates | sort -r
-	sudo yum install docker-ce
-	sudo systemctl start docker
-	sudo systemctl enable docker
-	sudo docker version
+	yum update
+	#yum list installed | grep docker
+	yum remove docker  docker-common docker-selinux docker-engine
+	yum install -y yum-utils device-mapper-persistent-data lvm2
+	yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+	#yum list docker-ce --showduplicates | sort -r
+	yum -y install docker-ce-19.03.5-3.el7
+	systemctl start docker
+	systemctl enable docker
+	docker version
+	yum -y install python3-pip.noarch
+	pip3 install docker-compose
 
     #安装docker-compse，用于编排
 	pip install docker-compose #安装docker-compose编码工具
