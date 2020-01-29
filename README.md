@@ -1,7 +1,7 @@
-# 有关Linux
+# 有关Linux♔
 *-----Linux学习笔记*
 
-## 一、个人学习笔记
+## 一、个人学习笔记♨
 
 分类|列表|参考资料|项目及实践
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
@@ -17,7 +17,7 @@
 系统编程|[Linux模块编程](./Linux模块编程.md)|
 C及SHELL编程|1.[Linux Shell编程](./Linux—Shell编程.md)<br>2.[有关LLVM编译器](https://github.com/yejinlei/about-compiler/blob/master/有关LLVM.md)<br>3.[GIT版本控制](https://github.com/yejinlei/about-git)|
 
-## 二、有关Linux内核原理及思维导图
+## 二、有关Linux内核原理及思维导图♨
 
 <details><summary>linux kernel map</summary>
 
@@ -79,7 +79,23 @@ C及SHELL编程|1.[Linux Shell编程](./Linux—Shell编程.md)<br>2.[有关LLVM
 
 </details>
 
-## 三、资料
+## 三、相关主题♨
+
+### ✔ docker容器
+
+### ✔ kubernetes运维
+
+### ✔ service mesh服务网格
+
+### ✔ kvm/xen/qemu虚拟化
+
+### ✔ serverless无服务化
+
+### ✔ openstack私有云
+
+### ✔ SDN软件定义网络
+
+## 四、资料♨
 - UNIX Linux系统管理技术手册（第4版）
 - Linux命令行与Shell脚本编程大全
 - 《30天自制操作系统》
