@@ -95,6 +95,8 @@ C及SHELL编程|1.[Linux Shell编程](./Linux—Shell编程.md)<br>2.[有关LLVM
 
 ### ✔ SDN软件定义网络
 
+### ✔ 龙芯CPU及OS
+
 ## 四、资料♨
 - UNIX Linux系统管理技术手册（第4版）
 - Linux命令行与Shell脚本编程大全
