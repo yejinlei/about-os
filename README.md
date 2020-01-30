@@ -9,7 +9,7 @@
 进程管理|[Linux进程管理](./Linux进程管理.md)|
 内存管理|[Linux内存管理](./Linux内存管理.md)|
 文件系统|[Linux文件系统](./Linux文件系统.md)|
-网络管理|[Linux网络管理](./Linux网络管理.md)|
+网络管理|[Linux网络管理](./Linux网络管理.md)| | [aria2‘s github](https://github.com/aria2/aria2)、[netwox's github](https://github.com/yejinlei/netwox)、[ivre's github](https://github.com/cea-sec/ivre)、[NetworKit's github](https://github.com/networkit/networkit)
 设备管理|[Linux设备管理](./Linux设备管理.md)|
 虚拟化技术|1.[Linux虚拟化技术](./Linux虚拟化技术.md)<br>2.[有关Qemu](./有关Qemu.md)|
 容器及运维|[Linux容器及编排技术](./Linux容器及编排技术.md)<br>|
@@ -93,9 +93,15 @@ C及SHELL编程|1.[Linux Shell编程](./Linux—Shell编程.md)<br>2.[有关LLVM
 
 ### ✔ openstack私有云
 
-### ✔ SDN软件定义网络
+### ✔ sdn软件定义网络
 
-### ✔ 龙芯CPU及OS
+### ✔ 龙芯
+
+#### 龙芯CPU
+
+#### 龙芯OS
+
+#### 龙芯编译器链
 
 ## 四、资料♨
 - UNIX Linux系统管理技术手册（第4版）
@@ -116,3 +122,7 @@ C及SHELL编程|1.[Linux Shell编程](./Linux—Shell编程.md)<br>2.[有关LLVM
 - [从无到有编写一个OS内核](http://www.ilovecl.com/2015/09/15/os_redleaf/)
 - [Operating System Development Series](http://www.brokenthorn.com/Resources/OSDevIndex.html)
 - [Ribose Yim's Tech Blog - How Linux Works](https://riboseyim.com/2019/04/21/Linux-Works)
+- [龙芯开源社区ftp](http://mirrors.loongnix.org/)
+- [debian‘s qemu镜像](https://people.debian.org/~aurel32/qemu/)
+- [qemu‘s down](https://download.qemu.org/)
+- [网络相关库及项目](https://www.oschina.net/project/tag/145/networklib)
