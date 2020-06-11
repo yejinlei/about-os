@@ -28,7 +28,8 @@ source ~/.zshrc
 
 #gvm for go
 sudo apt-get install -y curl git mercurial make binutils bison gcc build-essential　
-zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+zsh < <(curl -s -S -L https://gitee.com/yejinlei-mirror/gvm/raw/master/binscripts/gvm-installer)
+#zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 source ~/.gvm/scripts/gvm
 
 #sdkman for java
