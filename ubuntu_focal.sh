@@ -1,5 +1,5 @@
 #zsh,oh-my-zsh
-apt -y zsh apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+apt -y git zsh apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 chsh -s /bin/zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -54,4 +54,4 @@ axel -n 32  https://www.yworks.com/resources/yed/demo/yEd-3.20_with-JRE8_64-bit_
 axel -n 32 https://dl2.xmind.cn/xmind-8-update9-linux.zip && unzip xmind-8-update9-linux.zip
 
 #other
-apt install -y git tmux vim htop axel vlc
+apt install -y tmux vim htop axel vlc

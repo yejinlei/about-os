@@ -148,7 +148,7 @@
 	python34 get-pip.py #安装对应版本pip
 
 ## docker容器相关
-	#安装docker-ce
+	#安装docker-ce及docker-compose
 	yum update
 	#yum list installed | grep docker
 	yum remove docker  docker-common docker-selinux docker-engine
@@ -161,9 +161,6 @@
 	docker version
 	yum -y install python3-pip.noarch
 	pip3 install docker-compose
-
-    #安装docker-compse，用于编排
-	pip install docker-compose #安装docker-compose编码工具
 
 	#安装dfimage，用于Image to Dockefile	
 	alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm chenzj/dfimage"
