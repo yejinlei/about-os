@@ -103,7 +103,23 @@ C及SHELL编程|1.[Linux Shell编程](./Linux—Shell编程.md)<br>2.[有关LLVM
 
 #### 龙芯编译器链
 
-## 四、资料♨
+## 四、开源项目♨
+- [bpftools/linux-observability-with-bpf](https://github.com/bpftools/linux-observability-with-bpf)
+- [iovisor/bcc](https://github.com/iovisor/bcc)，eBPF 工具集 bcc-tools，ubuntu 下叫 bpfcc-tools
+- [tutorial_bcc_python_developer](https://github.com/iovisor/bcc/blob/master/docs/tutorial_bcc_python_developer.md)，教程：使用Pyhton开发bcc工具
+- [iovisor/bpftrace](https://github.com/iovisor/bpftrace)，eBPF 前端工具
+- [iovisor/ply](https://github.com/iovisor/ply)，eBPF 前端工具
+- [cilium/cilium](https://github.com/cilium/cilium)，基于 BPF 用于容器的关键网络技术
+
+## 五、Linux大神博客及社区
+- [Linux性能优化大神-Brendan D. Gregg](http://www.brendangregg.com/bpf-performance-tools-book.html)
+- [Service Mesh Community](https://github.com/servicemesher)
+	- [主页](https://www.servicemesher.com)
+	- [深入了解Cilium多集群](https://www.servicemesher.com/blog/deep-dive-into-cilium-multi-cluster/)
+	- [Istio 知识图谱](https://github.com/servicemesher/istio-knowledge-map)
+
+## 五、资料♨
+- [The Linux Kernel HOWTO](http://www.faqs.org/docs/Linux-HOWTO/Kernel-HOWTO.html)
 - UNIX Linux系统管理技术手册（第4版）
 - Linux命令行与Shell脚本编程大全
 - 《30天自制操作系统》
@@ -126,3 +142,7 @@ C及SHELL编程|1.[Linux Shell编程](./Linux—Shell编程.md)<br>2.[有关LLVM
 - [debian‘s qemu镜像](https://people.debian.org/~aurel32/qemu/)
 - [qemu‘s down](https://download.qemu.org/)
 - [网络相关库及项目](https://www.oschina.net/project/tag/145/networklib)
+- [eBPF 简史](https://www.ibm.com/developerworks/cn/linux/l-lo-eBPF-history/index.html)
+- [BPF Performance Tools](https://share.weiyun.com/s8atvC4K)
+- [inux Performance Tools](https://share.weiyun.com/6NZaCas6)
+- [LSFMM2019 BPF Observability](https://share.weiyun.com/d5U3P2sF)

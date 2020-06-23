@@ -53,5 +53,18 @@ axel -n 32  https://www.yworks.com/resources/yed/demo/yEd-3.20_with-JRE8_64-bit_
 #xmind
 axel -n 32 https://dl2.xmind.cn/xmind-8-update9-linux.zip && unzip xmind-8-update9-linux.zip
 
+#bcc
+apt install -y arping netperf iperf3 bison build-essential cmake flex git libedit-dev libllvm6.0 llvm-6.0-dev libclang-6.0-dev python zlib1g-dev libelf-dev luajit-dev 
+#axel -n 32 https://github.com/iovisor/bcc/releases/download/v0.15.0/bcc-src-with-submodule.tar.gz
+git clone https://gitee.com/yejinlei-mirror/bcc 
+tar -zxvf ./bcc-src-with-submodule.tar.gz
+mkdir bcc/build; cd bcc/build
+cmake ..
+make && make install
+cmake -DPYTHON_CMD=python ..
+pushd src/python/
+make && make install
+popd
+
 #other
 apt install -y tmux vim htop axel vlc
