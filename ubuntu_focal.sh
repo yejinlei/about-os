@@ -36,6 +36,10 @@ source ~/.gvm/scripts/gvm
 curl -s "https://get.sdkman.io" | zsh
 source ~/.sdkman/bin/sdkman-init.sh
 
+#nvm for nodejs
+curl -o- https://gitee.com/yejinlei-mirror/nvm/raw/master/install.sh | zsh
+source ~/.zshrc
+
 #jetbrains
 axel -n 32 https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.17.7005.tar.gz?_ga=2.26479098.696954856.1591014660-146187010.1591014660
 tar -zxvf jetbrains-toolbox-1.17.7005.tar.gz
