@@ -1,6 +1,6 @@
 # Linux性能优化及跟踪 #
 
-![](doc/perf/perf-tools-components-architecture.png)
+![](doc/perf/perf-tools-components-architecture.png)<br>from [mmi.hatenablog.com](http://mmi.hatenablog.com)
 ![](doc/LPO.jpg)
 ![](doc/LPB.jpg)
 ![](doc/LPT.jpg)
