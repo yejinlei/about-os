@@ -3,12 +3,15 @@
 > **工具集、系统调用&文件系统、框架&机制、事件源**
 ![](doc/perf/perf-tools-components-architecture.png)<br>from [mmi.hatenablog.com](http://mmi.hatenablog.com)
 
+--- 
 > **工具集**
+> ![](doc/perf/linux_perf_tools_full.png)
+> 观察工具|分析工具|测试工具|调整工具
+> ---|---|---|---
+> ![](doc/perf/linux_observability_tools.png)| ![](doc/perf/linux_static_tools.png) | ![](doc/perf/linux_benchmarking_tools.png) | ![](doc/perf/linux_tuning_tools.png)
+>from [www.brendangregg.com](http://www.brendangregg.com)
 
-观察工具|分析工具|测试工具|调整工具
----|---|---|---
-![](doc/perf/linux_observability_tools.png)| ![](doc/perf/linux_static_tools.png) | ![](doc/perf/linux_benchmarking_tools.png) | ![](doc/perf/linux_tuning_tools.png)
-<br>from [www.brendangregg.com](http://www.brendangregg.com)
+---
 
 > **性能事件源**
 ![](doc/perf/perf_events_map.png)<br>from [www.brendangregg.com](http://www.brendangregg.com)
