@@ -6,10 +6,11 @@
 --- 
 > **工具集**
 > ![](doc/perf/linux_perf_tools_full.png)
-> 观察工具|分析工具|测试工具|调整工具
-> ---|---|---|---
-> ![](doc/perf/linux_observability_tools.png)| ![](doc/perf/linux_static_tools.png) | ![](doc/perf/linux_benchmarking_tools.png) | ![](doc/perf/linux_tuning_tools.png)
->from [www.brendangregg.com](http://www.brendangregg.com)
+> 
+ 观察工具|分析工具|测试工具|调整工具
+ ---|---|---|---
+ ![](doc/perf/linux_observability_tools.png)| ![](doc/perf/linux_static_tools.png) | ![](doc/perf/linux_benchmarking_tools.png) | ![](doc/perf/linux_tuning_tools.png)
+ <br>from [www.brendangregg.com](http://www.brendangregg.com)
 
 ---
 
