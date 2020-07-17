@@ -13,7 +13,7 @@
 设备管理|[Linux设备管理](./Linux设备管理.md)|
 虚拟化技术|1.[Linux虚拟化技术](./Linux虚拟化技术.md)<br>2.[有关Qemu](./有关Qemu.md)|
 容器及运维|[Linux容器及编排技术](./Linux容器及编排技术.md)<br>|
-性能优化|[Linux调试及跟踪](./Linux性能优化及跟踪.md)|
+性能优化|[Linux性能优化及跟踪](./Linux性能优化及跟踪.md)|
 系统编程|[Linux模块编程](./Linux模块编程.md)|
 C及SHELL编程|1.[Linux Shell编程](./Linux—Shell编程.md)<br>2.[有关LLVM编译器](https://github.com/yejinlei/about-compiler/blob/master/有关LLVM.md)<br>3.[GIT版本控制](https://github.com/yejinlei/about-git)|
 

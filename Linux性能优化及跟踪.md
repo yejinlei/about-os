@@ -1,9 +1,18 @@
 # Linux性能优化及跟踪 #
 
+> **性能工具及组件、底层机制**
 ![](doc/perf/perf-tools-components-architecture.png)<br>from [mmi.hatenablog.com](http://mmi.hatenablog.com)
-![](doc/LPO.jpg)
+
+> **性能工具**
+![](doc/perf/linux_observability_tools.png)<br>from [www.brendangregg.com](http://www.brendangregg.com)
+
 ![](doc/LPB.jpg)
+
 ![](doc/LPT.jpg)
+
+> **性能事件源**
+![](doc/perf/perf_events_map.png)<br>from [www.brendangregg.com](http://www.brendangregg.com)
+
 
 ## 进程相关
 - top命令
