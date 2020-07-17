@@ -1,14 +1,14 @@
 # Linux性能优化及跟踪 #
 
-> **性能工具及组件、底层机制**
+> **工具集、系统调用&文件系统、框架&机制、事件源**
 ![](doc/perf/perf-tools-components-architecture.png)<br>from [mmi.hatenablog.com](http://mmi.hatenablog.com)
 
-> **性能工具**
-![](doc/perf/linux_observability_tools.png)<br>from [www.brendangregg.com](http://www.brendangregg.com)
+> **工具集**
 
-![](doc/LPB.jpg)
-
-![](doc/LPT.jpg)
+观察工具|分析工具|测试工具|调整工具
+---|---|---|---
+![](doc/perf/linux_observability_tools.png)| ![](doc/perf/linux_static_tools.png) | ![](doc/perf/linux_benchmarking_tools.png) | ![](doc/perf/linux_tuning_tools.png)
+<br>from [www.brendangregg.com](http://www.brendangregg.com)
 
 > **性能事件源**
 ![](doc/perf/perf_events_map.png)<br>from [www.brendangregg.com](http://www.brendangregg.com)
@@ -23,7 +23,7 @@
 	2. Task指出了当前系统有多少个进程，以及各种状态的进程统计信息
 	3. %Cpu(s)，代表了CPU占用比例
 	
-		>us用户模式 sy系统模式 ni优先值 id空闲CPU百分比 wa等待输入输出CPU事件百分比 hi中断 si软中断 st？
+		>us用户模式 sy系统模式 ni优先值 id空闲CPU百分比 wa等待输入输出CPU百分比 hi中断 si软中断 st？
 	4. 物理内存信息
 	5. 交换内存信息
 	6. 
