@@ -2,6 +2,9 @@
 
 ## 一. 总览
 ### 1.1. 概述
+	
+从纵向看，整个跟踪技术可分为：Front-End、Tracing Framework、Event Sources。Front-End主要是工具及一些脚本；Tracing Framework主要涉及框架、机制及一些专用跟踪调试用的文件系统；Event Sources包含各种封装过的跟踪调试性能事件。
+
 ![](doc/perf/linux-tracing-tracing-overview.png)
 ![](doc/perf/linux-tracing-tracing-tech-stack.png)
 
