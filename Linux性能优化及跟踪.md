@@ -1,10 +1,31 @@
 # Linux性能优化及跟踪 #
 
-> **工具集、系统调用&文件系统、框架&机制、事件源**
+## 一. 总览
+### 1.1. 概述
+![](doc/perf/linux-tracing-tracing-overview.png)
+![](doc/perf/linux-tracing-tracing-tech-stack.png)
+
+### 1.2 跟踪技术发展
+![](doc/perf/linux-tracing-timeline.png)
+
+### 1.3 跟踪机制与框架Tracing Framework 
+#### perf_event、eBPF、ftrace三者关系
 ![](doc/perf/perf-tools-components-architecture.png)<br>from [mmi.hatenablog.com](http://mmi.hatenablog.com)
 
---- 
-> **工具集**
+#### perf_event
+![](doc/perf/linux-tracing-perf_event.png)
+
+#### eBPF
+
+#### ftrace
+![](doc/perf/linux-tracing-ftrace.png)
+
+### 1.3 事件源Event Sources
+![](doc/perf/perf_events_map.png)<br>from [www.brendangregg.com](http://www.brendangregg.com)
+
+### 1.4 工具Front-End
+![](doc/tracer.png)
+
 > ![](doc/perf/linux_perf_tools_full.png)
 > 
  观察工具|分析工具|测试工具|调整工具
@@ -13,32 +34,14 @@
 
  from [www.brendangregg.com](http://www.brendangregg.com)
 
- > **perf-tools使用**
+ #### perf-tools使用
 
- > **perf使用**
+ #### perf使用
 
- > **trace-cmd使用**
+ #### trace-cmd使用
 
----
-
-> **系统调用&文件系统**
-
----
-
-> **框架&机制**
-
-> **perf event**
-
-> **eBPF**
-
-> **ftrace**
----
-
-> **事件源**
-![](doc/perf/perf_events_map.png)<br>from [www.brendangregg.com](http://www.brendangregg.com)
-
-
-## 进程相关
+## 二、
+### 进程相关
 - top命令
 	
 	![](doc/top.PNG)
@@ -82,7 +85,7 @@
 	    -e open,futex等，过滤指定系统调用
 	    -c，统计系统调用
 
-## 网络相关
+### 网络相关
 - nc命令，用于创建任意的TCP/UDP连接或者是监听连接
 	
 	![](doc/nc.PNG)
@@ -105,31 +108,16 @@
 
 	![](doc/ss.PNG)
 
-## 高级性能分析和诊断工具
-
-![](doc/tracer.png)
-### ftrace
-
-1. 实现原理
-	- ftrace\_init初始化
-	- \_\_ftrace\_replace_code
-
-1. 资料
-	1. Ftrace文档：Documentation/trace/ftrace.txt和ftrace-design.txt
-	2. [Ftrace简介](http://www.ibm.com/developerworks/cn/linux/l-cn-ftrace/)
-	3. [使用ftrace调试Linux内核](http://www.ibm.com/developerworks/cn/linux/l-cn-ftrace1/)
-
-### perf
-
-1. 安装 
-  sudo apt-get install perf-tools-unstable linux-tools-$(uname -r) linux-cloud-tools-$(uname -r)
-
-### 资料
+## 三、资料
 1. [Exploring USDT Probes on Linux](https://leezhenghui.github.io/linux/2019/03/05/exploring-usdt-on-linux.html)
-2. [Linux 系统动态追踪技术介绍](https://blog.arstercz.com/introduction_to_linux_dynamic_tracing/)
-3. [Brendan Gregg' Blog - perf Examples](http://www.brendangregg.com/perf.html#SoftwareEvents)
-4. [Brendan Gregg' Blog - Linux uprobe: User-Level Dynamic Tracing](https://webrtc.org.cn/webrtc-tutorial-1-setup-signaling/)
-5. [玩转 utrace](https://www.ibm.com/developerworks/cn/linux/l-cn-utrace/)
-6. [Ftrace 实现原理与开发实践](http://tinylab.org/ftrace-principle-and-practice/)
-7. [ftrace 中 eventtracing 的实现原理](https://www.ibm.com/developerworks/cn/linux/1609_houp_ftrace/)
-8. [使用 ftrace 跟踪内核](https://linux.cn/article-9838-1.html)
+1. [Linux 系统动态追踪技术介绍](https://blog.arstercz.com/introduction_to_linux_dynamic_tracing/)
+1. [Brendan Gregg' Blog - perf Examples](http://www.brendangregg.com/perf.html#SoftwareEvents)
+1. [Brendan Gregg' Blog - Linux uprobe: User-Level Dynamic Tracing](https://webrtc.org.cn/webrtc-tutorial-1-setup-signaling/)
+1. [玩转 utrace](https://www.ibm.com/developerworks/cn/linux/l-cn-utrace/)
+1. [Ftrace简介](http://www.ibm.com/developerworks/cn/linux/l-cn-ftrace/)
+1. [使用ftrace调试Linux内核，一](http://www.ibm.com/developerworks/cn/linux/l-cn-ftrace1/)
+1. [使用ftrace调试Linux内核，二](http://www.ibm.com/developerworks/cn/linux/l-cn-ftrace2/)
+1. [使用ftrace调试Linux内核，三](http://www.ibm.com/developerworks/cn/linux/l-cn-ftrace3/)
+1. [Ftrace 实现原理与开发实践](http://tinylab.org/ftrace-principle-and-practice/)
+1. [ftrace 中 eventtracing 的实现原理](https://www.ibm.com/developerworks/cn/linux/1609_houp_ftrace/)
+1. [使用 ftrace 跟踪内核](https://linux.cn/article-9838-1.html)
