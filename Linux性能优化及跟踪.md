@@ -68,8 +68,6 @@
  ![](doc/perf/bpftrace_probes_2018.png)
 
  #### SystemTap（对标SUN Dtrace，使用profiling, tracepoints, kprobes, uprobes，USDT事件源）
- 
- #### LTTng
 
 ## 二、
 ### 进程相关
