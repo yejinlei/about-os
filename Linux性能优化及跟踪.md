@@ -1,4 +1,6 @@
 # Linux性能优化及跟踪 #
+说明：
+* 图例、术语及内容很多来源于互联网，尤其是[Brendan Gredd' Blog](http://www.brendangregg.com/)、[leezhenghui.github.io](https://leezhenghui.github.io)、[mmi.hatenablog.com](http://mmi.hatenablog.com)等，下文不再赘述；
 
 ## 一. 总览
 ### 1.1. 概述
@@ -13,7 +15,7 @@
 
 ### 1.3 跟踪机制与框架Tracing Framework 
 #### perf_event、eBPF、ftrace三者关系
-![](doc/perf/perf-tools-components-architecture.png)<br>from [mmi.hatenablog.com](http://mmi.hatenablog.com)
+![](doc/perf/perf-tools-components-architecture.png)
 
 #### perf_event
 ![](doc/perf/linux-tracing-perf_event.png)
@@ -28,7 +30,7 @@
 ![](doc/perf/linux-tracing-ftrace.png)
 
 ### 1.3 事件源Event Sources
-![](doc/perf/perf_events_map.png)<br>from [www.brendangregg.com](http://www.brendangregg.com)
+![](doc/perf/perf_events_map.png)
 
 #### tracepoints（内核静态跟踪点）
 
@@ -37,6 +39,7 @@
 #### uprobes（用户级动态跟踪点）
 
 #### USDT/SDT（用户预设跟踪点）
+![](doc/perf/linux-tracing-usdt.png)
 
 #### PMCs（硬件相关）
 
@@ -58,8 +61,13 @@
  #### trace-cmd（利用ftrace/debugfs）
 
  #### bcc（利用eBPF）
+![](doc/perf/bcc_tracing_tools_early2019.png)
+![](doc/perf/linux-tracing-bcc.png)
 
  #### bpftrace（利用eBPF）
+ ![](doc/perf/bpftrace_tools_early2019.png)
+ ![](doc/perf/bpftrace_internals_2018.png)
+ ![](doc/perf/bpftrace_probes_2018.png)
 
 ## 二、
 ### 进程相关
@@ -129,7 +137,11 @@
 
 	![](doc/ss.PNG)
 
-## 三、资料
+## 三、笔记
+
+![](doc/perf/有关Linux性能优化.png)
+
+## 四、资料
 1. [Exploring USDT Probes on Linux](https://leezhenghui.github.io/linux/2019/03/05/exploring-usdt-on-linux.html)
 1. [Linux 系统动态追踪技术介绍](https://blog.arstercz.com/introduction_to_linux_dynamic_tracing/)
 1. [Brendan Gregg' Blog - perf Examples](http://www.brendangregg.com/perf.html#SoftwareEvents)
