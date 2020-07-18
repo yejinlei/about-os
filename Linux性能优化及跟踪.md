@@ -19,6 +19,10 @@
 ![](doc/perf/linux-tracing-perf_event.png)
 
 #### eBPF
+* eBPF用于跟踪(eBPF不仅仅用于跟踪技术，还有其他大用处：)
+![](doc/perf/linux-tracing-bpf-for-tracing.png)
+* eBPF支持的事件源
+![](doc/perf/linux_ebpf_support.png)
 
 #### ftrace
 ![](doc/perf/linux-tracing-ftrace.png)
@@ -26,7 +30,17 @@
 ### 1.3 事件源Event Sources
 ![](doc/perf/perf_events_map.png)<br>from [www.brendangregg.com](http://www.brendangregg.com)
 
-### 1.4 工具Front-End
+#### tracepoints（内核静态跟踪点）
+
+#### kprobes（内核动态跟踪点）
+
+#### uprobes（用户级动态跟踪点）
+
+#### USDT/SDT（用户预设跟踪点）
+
+#### PMCs（硬件相关）
+
+### 1.4 跟踪前端工具Front-End
 ![](doc/tracer.png)
 
 > ![](doc/perf/linux_perf_tools_full.png)
@@ -37,11 +51,15 @@
 
  from [www.brendangregg.com](http://www.brendangregg.com)
 
- #### perf-tools使用
+ #### perf-tools（利用ftrace和perf_event）
 
- #### perf使用
+ #### perf使用（主要利用perf_event，少量使用ftrace）
 
- #### trace-cmd使用
+ #### trace-cmd（利用ftrace/debugfs）
+
+ #### bcc（利用eBPF）
+
+ #### bpftrace（利用eBPF）
 
 ## 二、
 ### 进程相关
