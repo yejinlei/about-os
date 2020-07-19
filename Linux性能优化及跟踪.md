@@ -14,34 +14,45 @@
 ![](doc/perf/linux-tracing-timeline.png)<br>*跟踪技术的逐步演进*
 
 ### 1.3 跟踪机制与框架Tracing Framework 
-#### perf_event、eBPF、ftrace三者关系
+#### perf_event、eBPF、ftrace三者关系♨
+
 ![](doc/perf/perf-tools-components-architecture.png)
 
-#### perf_event
+#### perf_event♨
+
 ![](doc/perf/linux-tracing-perf_event.png)
 
-#### eBPF
+#### eBPF♨
+
 * eBPF用于跟踪(eBPF不仅仅用于跟踪技术，还有其他大用处：)
 ![](doc/perf/linux-tracing-bpf-for-tracing.png)
+
 * eBPF支持的事件源
 ![](doc/perf/linux_ebpf_support.png)
 
-#### ftrace
+#### ftrace♨
+
 ![](doc/perf/linux-tracing-ftrace.png)
 
 ### 1.3 事件源Event Sources
+
 ![](doc/perf/perf_events_map.png)
 
-#### tracepoints（内核静态跟踪点）
+#### tracepoints（内核静态跟踪点）♨
 
-#### kprobes（内核动态跟踪点）
 
-#### uprobes（用户级动态跟踪点）
+#### kprobes（内核动态跟踪点）♨
 
-#### USDT/SDT（用户预设跟踪点）
+
+#### uprobes（用户级动态跟踪点）♨
+
+
+#### USDT/SDT（用户预设跟踪点）♨
+
 ![](doc/perf/linux-tracing-usdt.png)
 
-#### PMCs（硬件相关）
+#### PMCs（硬件相关）♨
+
 
 ### 1.4 跟踪前端工具Front-End
 ![](doc/tracer.png)
@@ -52,22 +63,22 @@
  ---|---|---|---
  ![](doc/perf/linux_observability_tools.png)| ![](doc/perf/linux_static_tools.png) | ![](doc/perf/linux_benchmarking_tools.png) | ![](doc/perf/linux_tuning_tools.png)
 
- #### [perf-tools](https://github.com/brendangregg/perf-tools)（利用ftrace和perf_event）
+ #### [perf-tools](https://github.com/brendangregg/perf-tools)（利用ftrace和perf_event）♨
 
- #### perf使用（主要利用perf_event，少量使用ftrace）
+ #### perf使用（主要利用perf_event，少量使用ftrace）♨
 
- #### [trace-cmd](https://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git)（利用ftrace/debugfs）
+ #### [trace-cmd](https://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git)（利用ftrace/debugfs）♨
 
- #### [bcc](https://github.com/iovisor/bcc)（利用eBPF）
+ #### [bcc](https://github.com/iovisor/bcc)（利用eBPF）♨
 ![](doc/perf/bcc_tracing_tools_early2019.png)
 ![](doc/perf/linux-tracing-bcc.png)
 
- #### [bpftrace](https://github.com/iovisor/bpftrace)（利用eBPF）
+ #### [bpftrace](https://github.com/iovisor/bpftrace)（利用eBPF）♨
  ![](doc/perf/bpftrace_tools_early2019.png)
  ![](doc/perf/bpftrace_internals_2018.png)
  ![](doc/perf/bpftrace_probes_2018.png)
 
- #### [SystemTap](https://sourceware.org/git/systemtap.git)（对标SUN Dtrace），[官网](https://sourceware.org/systemtap/)
+ #### [SystemTap](https://sourceware.org/git/systemtap.git)（对标SUN Dtrace），[官网](https://sourceware.org/systemtap/)♨
 ![](doc/perf/systemtap_works.jpg)
 
 ## 二、
