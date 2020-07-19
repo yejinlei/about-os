@@ -5,13 +5,13 @@
 ## 一. 总览
 ### 1.1. 概述
 	
-从纵向看，整个跟踪技术可分为：Front-End、Tracing Framework、Event Sources。Front-End主要是工具及一些脚本；Tracing Framework主要涉及框架、机制及一些专用跟踪调试用的文件系统；Event Sources包含各种封装过的跟踪调试性能事件。
+从技术栈看，整个跟踪技术可分为：Front-End、Tracing Framework、Event Sources。Front-End主要是工具及一些脚本；Tracing Framework主要涉及框架、机制及一些专用跟踪调试用的文件系统；Event Sources包含各种封装过的跟踪调试性能事件。
 
-![](doc/perf/linux-tracing-tracing-overview.png)
+![](doc/perf/linux-tracing-tracing-overview.png)<br>*Front-End、Tracing Framework、Event Sources，详细如下：*
 ![](doc/perf/linux-tracing-tracing-tech-stack.png)
 
 ### 1.2 跟踪技术发展
-![](doc/perf/linux-tracing-timeline.png)
+![](doc/perf/linux-tracing-timeline.png)<br>*跟踪技术的逐步演进*
 
 ### 1.3 跟踪机制与框架Tracing Framework 
 #### perf_event、eBPF、ftrace三者关系
@@ -56,18 +56,18 @@
 
  #### perf使用（主要利用perf_event，少量使用ftrace）
 
- #### trace-cmd（利用ftrace/debugfs）
+ #### [trace-cmd](https://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git)（利用ftrace/debugfs）
 
- #### bcc（利用eBPF）
+ #### [bcc](https://github.com/iovisor/bcc)（利用eBPF）
 ![](doc/perf/bcc_tracing_tools_early2019.png)
 ![](doc/perf/linux-tracing-bcc.png)
 
- #### bpftrace（利用eBPF）
+ #### [bpftrace](https://github.com/iovisor/bpftrace)（利用eBPF）
  ![](doc/perf/bpftrace_tools_early2019.png)
  ![](doc/perf/bpftrace_internals_2018.png)
  ![](doc/perf/bpftrace_probes_2018.png)
 
- #### SystemTap（对标SUN Dtrace）
+ #### [SystemTap](https://sourceware.org/git/systemtap.git)（对标SUN Dtrace），[官网](https://sourceware.org/systemtap/)
 ![](doc/perf/systemtap_works.jpg)
 
 ## 二、
