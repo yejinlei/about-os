@@ -231,8 +231,6 @@ docker run创建Docker容器时，--net选项指定容器网络模式，Docker�
 	esac
 </details>
 
-### Docker源码分析 ###
-
 ## Docker原理与机制 ##
 - 系统调用
 - namespaces - *基于进程，为每个容器提供资源隔离*
@@ -430,3 +428,4 @@ IPC相关知识，请参考[Linux进程间通信](./Linux进程间通信.md)，*
 6. [Install Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
 6. [Install and Set Up kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 7. [Kubernetes 容器运行时演进](https://feisky.xyz/posts/kubernetes-container-runtime/)
+8. [Namespaces in operation, part 1: namespaces overview](https://lwn.net/Articles/531114/)
